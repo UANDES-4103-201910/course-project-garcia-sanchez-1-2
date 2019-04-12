@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'registred_users/new'
+  root 'registred_users#new'
   resources :system_admin_inappropriates
   resources :admin_inappropriates
   resources :user_inappropriates
