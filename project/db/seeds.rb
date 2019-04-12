@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 users = [RegistredUser.new(mail: "t@us.com", username: "tomgar", password: "1234"),
-Registered_user.new(mail: "m@us.com", username: "resnak", password: "1234"), 
-Registered_user.new(mail: "h@us.com", username: "hugo", password: "1234"),
-Registered_user.new(mail: "n@us.com", username: "aspee", password: "1234"),
-Registered_user.new(mail: "m@us.com", username: "costa", password: "1234")]
+RegistredUser.new(mail: "m@us.com", username: "resnak", password: "1234"), 
+RegistredUser.new(mail: "h@us.com", username: "hugo", password: "1234"),
+RegistredUser.new(mail: "n@us.com", username: "aspee", password: "1234"),
+RegistredUser.new(mail: "m@us.com", username: "costa", password: "1234")]
 
 for u in users do 
 	u.save!
