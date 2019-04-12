@@ -1,0 +1,32 @@
+<%= form_with(model: registred_user, local: true) do |form| %>
+  <% if registred_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(registred_user.errors.count, "error") %> prohibited this registred_user from being saved:</h2>
+
+      <ul>
+      <% registred_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :mail %>
+    <%= form.text_field :mail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

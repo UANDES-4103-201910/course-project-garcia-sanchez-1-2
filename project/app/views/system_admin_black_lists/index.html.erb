@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>System Admin Black Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>System admin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @system_admin_black_lists.each do |system_admin_black_list| %>
+      <tr>
+        <td><%= system_admin_black_list.user %></td>
+        <td><%= system_admin_black_list.system_admin %></td>
+        <td><%= link_to 'Show', system_admin_black_list %></td>
+        <td><%= link_to 'Edit', edit_system_admin_black_list_path(system_admin_black_list) %></td>
+        <td><%= link_to 'Destroy', system_admin_black_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New System Admin Black List', new_system_admin_black_list_path %>

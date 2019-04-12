@@ -1,0 +1,2 @@
+module SystemAdminDumpstersHelper
+end

@@ -1,0 +1,2 @@
+module AdminDumpstersHelper
+end

@@ -1,0 +1,2 @@
+module AdminInappropriatesHelper
+end

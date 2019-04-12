@@ -1,0 +1,2 @@
+module SystemAdminInappropriatesHelper
+end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Inappropriates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>Admin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_inappropriates.each do |admin_inappropriate| %>
+      <tr>
+        <td><%= admin_inappropriate.post %></td>
+        <td><%= admin_inappropriate.admin %></td>
+        <td><%= link_to 'Show', admin_inappropriate %></td>
+        <td><%= link_to 'Edit', edit_admin_inappropriate_path(admin_inappropriate) %></td>
+        <td><%= link_to 'Destroy', admin_inappropriate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Inappropriate', new_admin_inappropriate_path %>

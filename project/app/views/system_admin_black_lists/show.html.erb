@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @system_admin_black_list.user %>
+</p>
+
+<p>
+  <strong>System admin:</strong>
+  <%= @system_admin_black_list.system_admin %>
+</p>
+
+<%= link_to 'Edit', edit_system_admin_black_list_path(@system_admin_black_list) %> |
+<%= link_to 'Back', system_admin_black_lists_path %>
