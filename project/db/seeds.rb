@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = [Registered_user.new(mail: "t@us.com", username: "tomgar", password: "1234"),
+users = [RegistredUser.new(mail: "t@us.com", username: "tomgar", password: "1234"),
 Registered_user.new(mail: "m@us.com", username: "resnak", password: "1234"), 
 Registered_user.new(mail: "h@us.com", username: "hugo", password: "1234"),
 Registered_user.new(mail: "n@us.com", username: "aspee", password: "1234"),
@@ -23,7 +23,7 @@ for a in admins do
 	a.save!
 end
 
-sys = System_admin.new(mail: "system@sy.com", username: "super1", password: "123")
+sys = SystemAdmin.new(mail: "system@sy.com", username: "super1", password: "123")
 
 sys.save!
 
