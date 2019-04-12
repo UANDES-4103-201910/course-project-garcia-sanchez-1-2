@@ -1,0 +1,2 @@
+class Inappropiate < ApplicationRecord
+end
