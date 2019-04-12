@@ -1,2 +1,2 @@
-class SuperAdmin < ApplicationRecord
+	class SuperAdmin < ApplicationRecord
 end
