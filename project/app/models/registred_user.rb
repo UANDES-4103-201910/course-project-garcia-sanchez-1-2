@@ -5,7 +5,7 @@ class RegistredUser < ApplicationRecord
 	has_many :user_inappropriate
 	validates :password, length: {in: 3..15}
   	validates :mail, presence: true, uniqueness: true, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "Invalid email"}
-  	validates :username, presence: true, uniqueness: true
+  	validates :username, presence: true, uniqueness: true, length: {in: 3..20}
 
 
 
