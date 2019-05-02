@@ -1,4 +1,5 @@
  <%= form_for(:session, url: log_in_path) do |f| %>
+  <h1>Log in</h1>
   <div class="form-group">
     <%= f.label :email,"Email" %><br />
     <%= f.email_field :email, autofocus: true  %>
@@ -8,9 +9,42 @@
     <%= f.label :password, "Password" %><br />
     <%= f.password_field :password, autocomplete: "off"  %>
   </div>
+
   <div class="actions">
     <%= f.submit "Log In" %>
   </div>
+
+  <h1>Sign Up</h1>
+
+  <div class="form-group">
+    <%= f.label :new_email, "Email*" %><br />
+    <%= f.email_field :email, autofocus: true  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :new_username, "Username*" %><br />
+    <%= f.text_field :username, autofocus: true  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :new_name, "Name*" %><br />
+    <%= f.text_field :name, autofocus: true  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :new_last_name, "Last Name*" %><br />
+    <%= f.text_field :last_name, autofocus: true  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :new_phone, "Phone" %><br />
+    <%= f.text_field :phone, autofocus: true  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+  
   <br>
 <% end %>
 <%= link_to 'Sign In', registrations_path %>
