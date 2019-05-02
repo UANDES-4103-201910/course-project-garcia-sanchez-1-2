@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'registred_users/new'
-  root 'registred_users#new'
+
+  
   resources :system_admin_inappropriates
   resources :admin_inappropriates
   resources :user_inappropriates
@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   resources :profiles
   resources :registred_users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root :to => 'sessions#new'
+  post '/login' => 'sessions#create', as: :log_in
+  delete '/log_out' => 'sessions#destroy', as: :log_out
+
+  get '/sign_in' => 'registrations#new', as: :registrations
+  post '/sign_in' => 'registrations#create', as: :sign_in
 end
