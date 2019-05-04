@@ -1,18 +1,20 @@
 class SessionsController < ApplicationController
+	
 	def new
 		
 	end
 
 	def create
 		#complete this method
-		user = RegisterdUser.find_by( email: params[:session][:email].downcase)
-		password = params[:session][:password]
-		if user && user[:password] == password
-			log_in user
-			redirect_to "/users/#{user[:id]}"
-			flash[:notice] = "Welcome to my empire!"
+		registred_user = RegistredUser.find_by(mail: params[:session][:mail].downcase)
+		password = params[:session][:password]	
+
+		if registred_user && registred_user[:password] == password
+			log_in registred_user
+			redirect_to registred_user
+			flash[:notice] = "Welcome To SweetUms!"
 		else
-			flash.now[:notice] = "Try again"
+			flash[:error] = "User"
 			render :new
 		end
 	end

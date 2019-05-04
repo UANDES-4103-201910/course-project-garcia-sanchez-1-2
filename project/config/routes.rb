@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   resources :registred_users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => 'sessions#new'
+
   post '/login' => 'sessions#create', as: :log_in
   delete '/log_out' => 'sessions#destroy', as: :log_out
 
-  get '/sign_in' => 'registrations#new', as: :registrations
-  post '/sign_in' => 'registrations#create', as: :sign_in
+  post '/sign_up' => 'registration#create', as: :sign_up
 end

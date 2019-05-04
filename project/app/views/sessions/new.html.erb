@@ -1,50 +1,94 @@
- <%= form_for(:session, url: log_in_path) do |f| %>
-  <h1>Log in</h1>
-  <div class="form-group">
-    <%= f.label :email,"Email" %><br />
-    <%= f.email_field :email, autofocus: true  %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password, "Password" %><br />
-    <%= f.password_field :password, autocomplete: "off"  %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Log In" %>
-  </div>
-
-  <h1>Sign Up</h1>
-
-  <div class="form-group">
-    <%= f.label :new_email, "Email*" %><br />
-    <%= f.email_field :email, autofocus: true  %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :new_username, "Username*" %><br />
-    <%= f.text_field :username, autofocus: true  %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :new_name, "Name*" %><br />
-    <%= f.text_field :name, autofocus: true  %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :new_last_name, "Last Name*" %><br />
-    <%= f.text_field :last_name, autofocus: true  %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :new_phone, "Phone" %><br />
-    <%= f.text_field :phone, autofocus: true  %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <title>Welcome to SweetUms!</title>
+ </head>
+ <body>
+ 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
+  <div class = "row">
+    <div class = "col-md-3 offset-md-3">
+      <h1>Log in</h1>
+      <%= form_for(:session, url: log_in_path) do |f| %>
+
+      <div class="input-group mb-3">
+       <%= f.email_field :mail, class: 'form-control', placeholder: "Email" %>            
+      </div>
+
+      <div class="input-group mb-3">
+        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+      </div>
+
+      <%= f.submit "Log in", class: "btn btn-outline-dark" %>
+      <% end -%>
+    </div>
+
+    <div class = "col-md-3">
+      <h1>Sign Up</h1>
+      <%= form_for(:registration, url: sign_up_path) do |f| %>
+      <div class="input-group mb-3">
+        <%= f.email_field :mail, class: 'form-control', placeholder: "Email" %>
+      </div>
+
+      <div class="input-group mb-3">
+        <%= f.text_field :username, class: 'form-control', placeholder: "Username" %>
+      </div>
+
+      <div class="input-group mb-3">
+        <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
+      </div>
+      
+      <div class="input-group mb-3">
+        <%= f.text_field :last_name, class: 'form-control', placeholder: "Last Name" %>
+      </div>
+
+      <div class="input-group mb-3">
+        <%= f.phone_field :phone, class: 'form-control', placeholder: "Phone" %>
+      </div>
+
+      <div class="input-group mb-3">
+        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+      </div>
+      
+      <div class="input-group mb-3">
+        <%= f.password_field :confirmed_password, class: 'form-control', placeholder: "Confirm Password" %>
+      </div>
+
+      <div class="input-group mb-3">
+
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input type="checkbox" aria-label="Checkbox for following text input" vale = "status">
+          </div>
+        </div>
+        <span class="input-group-text" id ="basic-addon1">I accept Terms and Conditiosns </span>
+      </div>
+
+      <div class="input-group mb-3">
+
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input type="checkbox" aria-label="Checkbox for following text input"> 
+          </div>
+        </div>
+        <span class="input-group-text" id ="basic-addon1">I accept Use Policy </span>
+      </div>
+
+      <%= f.submit "Sign Up", class: "btn btn-outline-dark" %>
+
+       
+
+    <% end -%>
+    </div>
+  </div>
+    
   <br>
-<% end %>
-<%= link_to 'Sign In', registrations_path %>
+
+ </body>
+ </html>
+ 
+
+
+
