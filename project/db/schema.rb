@@ -78,10 +78,8 @@ ActiveRecord::Schema.define(version: 2019_05_03_015736) do
     t.text "body"
     t.string "country"
     t.string "city"
-    t.integer "registred_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["registred_user_id"], name: "index_posts_on_registred_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|

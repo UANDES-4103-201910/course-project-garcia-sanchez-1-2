@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :registred_user
+  #belongs_to :registred_user
   has_one :admin_dumpster
   has_one :system_admin_dumpster
   has_one :system_admin_inappropriate

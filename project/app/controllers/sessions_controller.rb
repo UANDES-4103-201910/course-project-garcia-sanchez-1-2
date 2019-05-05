@@ -14,7 +14,7 @@ class SessionsController < 	ApplicationController
 			redirect_to my_wall_path
 			flash[:notice] = "Welcome To SweetUms!"
 		else
-			flash[:error] = "User"
+			flash[:error] = "Invalid Email or password, please try again.."
 			render :new
 		end
 	end

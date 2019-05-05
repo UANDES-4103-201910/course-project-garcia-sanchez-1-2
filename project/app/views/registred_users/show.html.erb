@@ -1,7 +1,28 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<p>
+  <strong>Name:</strong>
+  <%= @registred_user.name %>
+</p>
 
+<p>
+  <strong>Last Name:</strong>
+  <%= @registred_user.last_name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @registred_user.phone %>
+</p>
+<p>
+  <strong>Country:</strong>
+  <%= @registred_user.country %>
+</p>
+<p>
+  <strong>city:</strong>
+  <%= @registred_user.city %>
+</p>
 <p>
   <strong>Mail:</strong>
   <%= @registred_user.mail %>
@@ -16,6 +37,7 @@
   <strong>Username:</strong>
   <%= @registred_user.username %>
 </p>
+
 
 <%= link_to 'Edit', edit_registred_user_path(@registred_user) %> |
 <%= link_to 'Back', registred_users_path %>
