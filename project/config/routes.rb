@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   delete '/log_out' => 'sessions#destroy', as: :log_out
 
   post '/sign_up' => 'registration#create', as: :sign_up
+  post '/new_post' => 'newest#create', as: :my_new_post
 
   get '/my_wall' => 'mywall#new', as: :my_wall
 

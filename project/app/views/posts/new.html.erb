@@ -1,5 +1,68 @@
-<h1>New Post</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<%= render 'form', post: @post %>
+</head>
+<body>
+	
 
-<%= link_to 'Back', posts_path %>
+
+	<div class="row">
+	</div>
+
+	<div class="row">
+		<dir class="col-md-1"></dir>
+	    <div class = "col-md-3">
+	      <h1>My new post</h1>
+	      <%= form_for(:newest, url: my_new_post_path) do |f| %>
+	      <div class="input-group mb-3">
+	        <%= f.text_field :title, class: 'form-control', placeholder: "title" %>
+	      </div>
+
+	      <div class="input-group mb-3">
+	        <%= f.text_field :description, class: 'form-control', placeholder: "Description" %>
+	      </div>
+
+	      <div class="input-group mb-3">
+	        <%= f.text_area :body, class: 'form-control', placeholder: "Please, be nice!" %>
+	      </div> 
+	      
+	      <div class="input-group mb-3">
+	        <%= f.text_field :country, class: 'form-control', placeholder: "Country" %>
+	      </div>
+
+	      <div class="input-group mb-3">
+	        <%= f.text_field :city, class: 'form-control', placeholder: "City" %>
+	      </div>
+
+	      <div class="input-group mb-3">
+	        <%= f.text_field :geofence, class: 'form-control', placeholder: "geo" %>
+	      </div>
+
+	      
+	      <%= f.submit "Publish", class: "btn btn-outline-dark" %>
+	      <% end -%>
+	    </div>
+		<div class="col-md-3">
+			
+			<button type="button" class="btn btn-default btn-sm">
+          		<span class="glyphicon glyphicon-file"></span> File 
+        	</button>
+        	<button type="button" class="btn btn-default btn-sm">
+          		<span class="glyphicon glyphicon-picture"></span> Picture
+        	</button>
+        	<button type="button" class="btn btn-default btn-sm">
+          		<span class="glyphicon glyphicon-screenshot"></span> Location 
+        	</button>
+		</div>
+	</div>
+	
+	<!--%= render 'form', post: @post %-->
+	<a class="btn btn-light" href="/posts" role="button">back</a>
+</body>
+</html>
+
+

@@ -1,37 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Country</th>
-      <th>City</th>
-      <th>Geofence</th>
-      <th>Registred user</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.country %></td>
-        <td><%= post.city %></td>
-        <td><%= post.geofence %></td>
-        <td><%= post.registred_user %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
 </table>
 
 <br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<%= link_to 'New Post', new_post_path %>
+</head>
+<body>  
+
+<h1>Hello You!</h1>
+
+<div class="row">
+    <dir class="col-md-1">
+      <h3><%= link_to "Post", root_path %></h3>
+      <h3>My Wall</h3>
+      
+    </dir>
+
+    <dir class="col-md-7">
+      <% @posts.each do |p| %>
+        <h2><%= link_to p.title, p%></h2>
+        <p><%= p.description %></p>
+        <p><%= link_to "Edit", edit_post_path(p) %></p>
+        <p><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+        <hr />
+      <% end %>
+    </dir>
+
+    <dir class="col-md-4">
+      <%= link_to 'New Post', new_post_path %>
+
+    </dir>
+</div>
+
+
+
+</body>
+</html>
