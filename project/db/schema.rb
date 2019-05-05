@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_015736) do
+ActiveRecord::Schema.define(version: 2019_04_12_174605) do
 
   create_table "admin_black_lists", force: :cascade do |t|
     t.integer "user_id"
@@ -98,13 +98,11 @@ ActiveRecord::Schema.define(version: 2019_05_03_015736) do
     t.string "mail"
     t.string "password"
     t.string "username"
+    t.integer "phone"
+    t.string "city"
+    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "last_name"
-    t.integer "phone"
-    t.string "country"
-    t.string "city"
   end
 
   create_table "system_admin_black_lists", force: :cascade do |t|

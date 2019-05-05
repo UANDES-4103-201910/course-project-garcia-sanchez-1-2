@@ -1,18 +1,17 @@
-<p id="notice"><%= notice %></p>
 
-</table>
-
-<br>
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
  <script type="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
  <script type="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </head>
+<title>Navigation Bar</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 <body>  
   <nav class = "nav navbar-expand-md navbar-dark bg-dark fixed-top">
     
@@ -30,7 +29,9 @@
 
     <ul class = "navbar-nav">   
     
-      <button class = "btn btn dark"><i class='fas fa-pen' style='font-size:36px;color:white'></i></button>
+      
+      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-pen' style='font-size:36px;color:white'> </i></a>
+
     </ul>
       <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -39,8 +40,10 @@
 
       
     <ul class = "navbar-nav">
-      <button class = "btn btn dark" type = "link" href = post_path> <i class='fas fa-home' style='font-size:36px;color:white'> </i></button>
-      <button class = "btn btn dark"><i class='fas fa-cogs' style='font-size:36px;color:white'></i></button>
+      
+      <a href = "http://localhost:3000/posts" class = "btn btn-dark"> <i class='fas fa-home' style='font-size:36px;color:white'> </i></a>
+      <a href = "http://localhost:3000/registred_users/1/edit" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
+      
 
       
     </ul>
@@ -49,14 +52,14 @@
     </div>  
     
   </nav>
+  
 <h1>Hello You!</h1>
+<h1>''</h1>
+<h1>Hello You!</h1>
+
 
 <div class="row">
     <dir class="col-md-1">
-      
-      <h3>Post</h3>
-      <h3>My Wall</h3>
-      
     </dir>
 
     <dir class="col-md-7">

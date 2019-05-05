@@ -10,7 +10,7 @@ class NewestController < ApplicationController
 
 		if @post.save
     		flash[:success] = "Published was Complete!"
-    		redirect_to "http://google.com"
+    		redirect_to "http://localhost:3000/posts"
     	else
     		flash[:error] = "Something went wrong, please try again."
     		redirect_to  "http://localhost:3000/posts"
