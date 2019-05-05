@@ -11,7 +11,7 @@ class RegistrationController < ApplicationController
 	    registred_user = RegistredUser.new(registration_params)
 	    
 	    terms = params[:registration][:terms]
-	    policy = params[:registration][:policy]s
+	    policy = params[:registration][:policy]
 	    
 	    if terms == "0"
 	    	flash[:alert]  = "You have to accept Term and Conditions."
