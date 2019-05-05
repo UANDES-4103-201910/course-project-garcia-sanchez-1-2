@@ -69,6 +69,6 @@ class RegistredUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def registred_user_params
-      params.require(:registred_user).permit(:mail, :password, :city, :country, :phone, :name, :last_name)
+      params.require(:registred_user).permit(:mail, :city, :country, :phone, :name, :last_name, :password)
     end
 end

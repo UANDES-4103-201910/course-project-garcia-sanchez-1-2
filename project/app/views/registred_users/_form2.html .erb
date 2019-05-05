@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
  <script type="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
  <script type="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</head>
-<title>Navigation Bar</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+<head>
+  <title>Navigation Bar</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-<body>  
-  <nav class = "nav navbar-expand-md navbar-dark bg-dark fixed-top">
+</head>
+<body>
+<nav class = "nav navbar-expand-md navbar-dark bg-dark fixed-top">
     
     <button class = "navbar-toggler" data-toggle = "collapse" data-target= "#colapse-target" >
       <span class = "navbar-toggler-icon"></span>
@@ -51,8 +48,8 @@
       
     <ul class = "navbar-nav">
       
-      <a href = "http://localhost:3000/posts" class = "btn btn-dark active"> <i class='fas fa-home' style='font-size:36px;color:white'> </i></a>
-      <a href = "http://localhost:3000/registred_users/1/edit" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
+      <a href = "http://localhost:3000/posts" class = "btn btn-dark"> <i class='fas fa-home' style='font-size:36px;color:white'> </i></a>
+      <a href = "http://localhost:3000/registred_users/1/edit" class = "btn btn-dark active"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
       
 
       
@@ -63,45 +60,48 @@
     
   </nav>
 
+  <%= form_with(model: registred_user, local: true) do |form| %>
 
+  <% if registred_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(registred_user.errors.count, "error") %> prohibited this registred_user from being saved:</h2>
 
-
-<div class="row" style="margin-top: 100px">
-    <div class="col-md">
-    <h1>Hello You!</h1>
-    </div>
-</div>
-<div class = "row">
-  
-    <dir class="col-md-1">
-
-    </dir>
-
-    <dir class="col-md-7">
-      <div class="row" style="margin-left: 0px">
-        <div class="col-md-8"></div>
-        <div class="col-md-4" >
-          <select class="browser-default custom-select">
-            <option value="1">Newest</option>
-            <option value="2">Trendding tropic</option>
-            <option value="3">Oldest</option>
-          </select>
-        </div>
-      </div>
-
-      <% @posts.each do |p| %>
-
-        <h2><%= link_to p.title, p%></h2>
-        <p><%= p.description %></p>
-        <p><%= link_to "Edit", edit_post_path(p) %></p>
-        <p><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-
-        <hr />
+      <ul>
+      <% registred_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-    </dir>
-</div>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="row" style="margin-top: 95px">  
+  </div>
+  <div class="row">
+    
+  <div class="col-md-3 offset-4">
 
+   
+    
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1" tag = name> Password</span>
+      </div>
+      <%= form.password_field :password, class: "form-control" %>
+    </div>
 
+    
 
+    
+
+    <div> 
+      <%= form.submit "Update" ,class: "btn btn-outline-dark"%>
+      <a href="http://localhost:3000/"><%= form.submit "Update" ,class: "btn btn-outline-dark"%></a>
+    </div>
+
+  </div>
+  </div> 
+
+  <% end %>
 </body>
 </html>
+

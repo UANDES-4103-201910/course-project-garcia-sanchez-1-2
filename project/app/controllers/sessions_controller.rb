@@ -11,7 +11,7 @@ class SessionsController < 	ApplicationController
 
 		if registred_user && registred_user[:password] == password
 			log_in registred_user
-			redirect_to my_wall_path
+			redirect_to posts_path
 			flash[:notice] = "Welcome To SweetUms!"
 		else
 			flash[:error] = "Invalid Email or password, please try again.."
