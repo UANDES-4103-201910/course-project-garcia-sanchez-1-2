@@ -27,5 +27,8 @@ Rails.application.routes.draw do
 
   get '/my_wall' => 'mywall#new', as: :my_wall
 
+  post "/new_post" => "newest#create", as: :my_new_post
+  
+
 end
     
