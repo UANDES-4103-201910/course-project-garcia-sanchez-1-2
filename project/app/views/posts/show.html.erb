@@ -59,33 +59,36 @@
 <div class="row" style="margin-top: 100px">
   <div class="col-md-2"></div>
   <div class="col-md-6">
-  <h2><%= @post.title %></h2>
+  <h1><%= @post.title %></h1>
   </div>
-  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <h2>Were will be images and links :D</h2></div>
   
 </div>
 <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-5">
+    <div class="col-md-6">
       <div class="md-form">
-        <strong>Description:</strong>
-        <%= @post.description %>
+        <h6><%= @post.description %></h6>
+        <hr />
       </div>
       <div class="md-form">
-        <textarea id="form7" class="md-textarea form-control" style="overflow: hidden; word-wrap: break-word;" rows="8" readonly><%= @post.body %></textarea>
+        <textarea id="form7" class="md-textarea form-control"  rows="8" readonly><%= @post.body %></textarea>
+         <hr />
         
       </div>
       <div>
 
         <strong>Lotation:</strong>
-        <%= @post.country %>
-
         <%= @post.city %>
+        <%= @post.country %>
+        <hr />
       </div>
-      <div class="col-md-5"></div>
+      <div class="col-md-4">
+        <h2>Were will be comments :DD :D</h2></div>
+      </div>
     </div>
 </div>
 
 </body>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+

@@ -56,7 +56,12 @@
   </nav>
 
 <div class="row" style="margin-top: 100px">
-  <div class="col-md-2"></div>
+  <div class="col-md-2">
+
+  
+
+  
+  </div>
   <div class="col-md-8">
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
@@ -73,27 +78,27 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control', placeholder: "title" %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, class: 'form-control', placeholder: "Description" %>
   </div>
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: 'form-control', placeholder: "Please, be nice!" %>
   </div>
 
   <div class="field">
     <%= form.label :country %>
-    <%= form.text_field :country %>
+    <%= form.text_field :country, class: 'form-control', placeholder: "Country" %>
   </div>
 
   <div class="field">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, class: 'form-control', placeholder: "City" %>
   </div>
 
   <div class="actions">
