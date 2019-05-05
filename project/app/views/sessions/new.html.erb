@@ -7,10 +7,14 @@
  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <div class = "offset-md-4" >
+  <h1>Welcome To SweetUms!</h1>  
+  </div>
   
   <div class = "row">
+
     <div class = "col-md-3 offset-md-3">
-      <h1>Log in</h1>
+      
       <%= form_for(:session, url: log_in_path) do |f| %>
 
       <div class="input-group mb-3">
@@ -26,7 +30,7 @@
     </div>
 
     <div class = "col-md-3">
-      <h1>Sign Up</h1>
+      
       <%= form_for(:registration, url: sign_up_path) do |f| %>
       <div class="input-group mb-3">
         <%= f.email_field :mail, class: 'form-control', placeholder: "Email" %>
@@ -55,28 +59,19 @@
       <div class="input-group mb-3">
         <%= f.password_field :confirmed_password, class: 'form-control', placeholder: "Confirm Password" %>
       </div>
-
-      <div class="input-group mb-3">
-
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <input type="checkbox" aria-label="Checkbox for following text input" vale = "status">
-          </div>
-        </div>
-        <span class="input-group-text" id ="basic-addon1">I accept Terms and Conditiosns </span>
+      
+      <div>
+        <%= f.check_box :terms %> I accpet <%= link_to 'Terms and Conditions' , 'https://google.com'%>
       </div>
 
-      <div class="input-group mb-3">
-
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <input type="checkbox" aria-label="Checkbox for following text input"> 
-          </div>
-        </div>
-        <span class="input-group-text" id ="basic-addon1">I accept Use Policy </span>
+      <div>
+        <%= f.check_box :policy  %> I accpet <%= link_to 'Use Policy' , 'https://google.com'%> 
       </div>
-
-      <%= f.submit "Sign Up", class: "btn btn-outline-dark" %>
+      
+      <div> 
+      <%= f.submit "Sign Up" ,class: "btn btn-outline-dark"%>
+      </div>
+      
 
        
 

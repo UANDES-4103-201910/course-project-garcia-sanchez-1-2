@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class SessionsController < 	ApplicationController
 	
 	def new
 		
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
 		if registred_user && registred_user[:password] == password
 			log_in registred_user
-			redirect_to registred_user
+			redirect_to my_wall_path
 			flash[:notice] = "Welcome To SweetUms!"
 		else
 			flash[:error] = "User"
