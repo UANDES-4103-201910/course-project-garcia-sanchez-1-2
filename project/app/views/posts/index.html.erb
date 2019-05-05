@@ -42,7 +42,7 @@
     <ul class = "navbar-nav">
       
       <a href = "http://localhost:3000/posts" class = "btn btn-dark"> <i class='fas fa-home' style='font-size:36px;color:white'> </i></a>
-      <a href = "http://localhost:3000/registred_users/1/edit" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
+      <a href = "http://localhost:3000/registred_users/" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
       
 
       
@@ -52,18 +52,35 @@
     </div>  
     
   </nav>
+
+
+
+
+<div class="row" style="margin-top: 100px">
+    <div class="col-md">
+    <h1>Hello You!</h1>
+    </div>
+</div>
+<div class = "row">
   
-<h1>Hello You!</h1>
-<h1>''</h1>
-<h1>Hello You!</h1>
-
-
-<div class="row">
     <dir class="col-md-1">
+
     </dir>
 
     <dir class="col-md-7">
+      <div class="row" style="margin-left: 0px">
+        <div class="col-md-8"></div>
+        <div class="col-md-4" >
+          <select class="browser-default custom-select">
+            <option value="1">Newest</option>
+            <option value="2">Trendding tropic</option>
+            <option value="3">Oldest</option>
+          </select>
+        </div>
+      </div>
+
       <% @posts.each do |p| %>
+
         <h2><%= link_to p.title, p%></h2>
         <p><%= p.description %></p>
         <p><%= link_to "Edit", edit_post_path(p) %></p>
@@ -71,11 +88,6 @@
 
         <hr />
       <% end %>
-    </dir>
-
-    <dir class="col-md-4">
-      <%= link_to 'New Post', new_post_path %>
-
     </dir>
 </div>
 

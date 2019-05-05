@@ -18,7 +18,12 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
   </div>
 
   <div class="field">
@@ -29,16 +34,6 @@
   <div class="field">
     <%= form.label :city %>
     <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :geofence %>
-    <%= form.text_field :geofence %>
-  </div>
-
-  <div class="field">
-    <%= form.label :registred_user_id %>
-    <%= form.text_field :registred_user_id %>
   </div>
 
   <div class="actions">

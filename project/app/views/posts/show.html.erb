@@ -1,52 +1,43 @@
-<p id="notice"><%= notice %></p>
+
+
+<head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+</head>
+<body>
+  
+<div class="row" style="margin-top: 100px">
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+  <h2><%= @post.title %></h2>
+  </div>
+  <div class="col-md-4"></div>
+  
+</div>
 <div class="row">
-  <dir class="col-md-1">
-    <h3><%= link_to "Post", root_path %></h3>
-    <h3>My Wall</h3>
-  </dir>
+    <div class="col-md-2"></div>
+    <div class="col-md-5">
+      <div class="md-form">
+        <strong>Description:</strong>
+        <%= @post.description %>
+      </div>
+      <div class="md-form">
+        <textarea id="form7" class="md-textarea form-control" style="overflow: hidden; word-wrap: break-word;" rows="8" readonly><%= @post.body %></textarea>
+        
+      </div>
+      <div>
 
+        <strong>Lotation:</strong>
+        <%= @post.country %>
 
-
-  <dir class="col-md-7">
-    <p>
-      <strong>Title:</strong>
-      <%= @post.title %>
-    </p>
-
-    <p>
-      <strong>Description:</strong>
-      <%= @post.description %>
-    </p>
-
-    <p>
-      <strong>Body:</strong>
-      <%= @post.body %>
-    </p>
-
-    <p>
-      <strong>Country:</strong>
-      <%= @post.country %>
-    </p>
-
-    <p>
-      <strong>City:</strong>
-      <%= @post.city %>
-    </p>
-
-  </dir>
+        <%= @post.city %>
+      </div>
+      <div class="col-md-5"></div>
+    </div>
 </div>
 
-
-
-
-
-
-
-
-
+</body>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

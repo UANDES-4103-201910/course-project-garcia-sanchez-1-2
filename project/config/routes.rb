@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   post '/sign_up' => 'registration#create', as: :sign_up
   post '/new_post' => 'newest#create', as: :my_new_post
+  post '/update_post' => 'newest#update', as: :my_update_post
 
   get '/my_wall' => 'mywall#new', as: :my_wall
 

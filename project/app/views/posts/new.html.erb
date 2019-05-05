@@ -4,8 +4,11 @@
 	<title></title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 
 </head>
+
 <body>
 	
 
@@ -14,7 +17,8 @@
 	</div>
 
 	<div class="row">
-		<dir class="col-md-1"></dir>
+		<dir class="col-md-1">
+		</dir>
 	    <div class = "col-md-3">
 	      <h1>My new post</h1>
 	      <%= form_for(:newest, url: my_new_post_path) do |f| %>
@@ -42,17 +46,23 @@
 	      <%= f.submit "Publish", class: "btn btn-outline-dark" %>
 	      <% end -%>
 	    </div>
+
 		<div class="col-md-3">
-			
-			<button type="button" class="btn btn-default btn-sm">
-          		<span class="glyphicon glyphicon-file"></span> File 
-        	</button>
-        	<button type="button" class="btn btn-default btn-sm">
-          		<span class="glyphicon glyphicon-picture"></span> Picture
-        	</button>
-        	<button type="button" class="btn btn-default btn-sm">
-          		<span class="glyphicon glyphicon-screenshot"></span> Location 
-        	</button>
+			<div class="row" style="margin-top: 55px">
+				<div class="col-md-6">
+				<ul class = "navbar-nav">   
+      				<a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-file-alt' style='font-size:60px;color:white'> </i></a>
+    			</ul>
+
+				</div>
+				<div class="col-md-6">
+    			<ul class = "navbar-nav">   
+	      			<a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-image' style='font-size:60px;color:white'> </i></a>
+	    			</ul>
+
+				</div>
+
+    		</div>
 		</div>
 	</div>
 	
