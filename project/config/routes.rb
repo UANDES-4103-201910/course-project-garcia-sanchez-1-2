@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   root :to => 'sessions#new'
 
   post '/login' => 'sessions#create', as: :log_in
-  get '/log_out' => 'sessions#destroy', as: :log_out
+  get  '/log_out' => 'sessions#destroy', as: :log_out
 
   post '/sign_up' => 'registration#create', as: :sign_up
   post '/new_post' => 'newest#create', as: :my_new_post
