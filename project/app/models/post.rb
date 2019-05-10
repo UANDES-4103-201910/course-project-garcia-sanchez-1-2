@@ -7,4 +7,5 @@ class Post < ApplicationRecord
   has_many :admin_inappropriate
   has_many :comment
   has_many :post_image
+  validates :title, :description, :body, presence: true
 end
