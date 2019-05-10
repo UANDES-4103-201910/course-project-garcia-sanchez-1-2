@@ -4,9 +4,17 @@
    <title>Welcome to SweetUms!</title>
  </head>
  <body>
- 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <nav class = "nav navbar-expand-md navbar-dark bg-dark fixed-top">
+    
+    <button class = "navbar-toggler" data-toggle = "collapse" data-target= "#colapse-target" >
+      <span class = "navbar-toggler-icon"></span>
+    </button>
+    <div class = "collapse navbar-collapse" id = "collapse_target">
+
+    <span class = "btn btn-dark " style='font-size:50px'>SweetUms</span>
+    </div>
+    
+  </nav>
   <div class = "offset-md-4" style="margin-top: 100px">
   <h1>Welcome To SweetUms!</h1>  
   </div>
@@ -61,11 +69,11 @@
       </div>
       
       <div>
-        <%= f.check_box :terms %> I accpet <%= link_to 'Terms and Conditions' , 'https://google.com'%>
+        <%= f.check_box :terms %> I accept <%= link_to 'Terms and Conditions' , 'https://google.com'%>
       </div>
 
       <div>
-        <%= f.check_box :policy  %> I accpet <%= link_to 'Use Policy' , 'https://google.com'%> 
+        <%= f.check_box :policy  %> I accept <%= link_to 'Use Policy' , 'https://google.com'%> 
       </div>
       
       <div> 
