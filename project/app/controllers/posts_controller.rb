@@ -6,6 +6,9 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
+  def wall
+    @posts = Post.all
+  end
 
   # GET /posts/1
   # GET /posts/1.json
@@ -56,7 +59,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to my_wall_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

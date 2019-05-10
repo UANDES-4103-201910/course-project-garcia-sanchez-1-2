@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   post '/new_post' => 'newest#create', as: :my_new_post
   post '/update_post' => 'newest#update', as: :my_update_post
 
-  get '/my_wall' => 'mywall#new', as: :my_wall
+  get '/my_wall' => 'posts#wall', as: :my_wall
 
  
 
