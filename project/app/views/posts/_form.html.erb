@@ -1,68 +1,12 @@
  <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-</head> 
+
 <body>
-  <nav class = "nav navbar-expand-md navbar-dark bg-dark fixed-top">
-    
-    <button class = "navbar-toggler" data-toggle = "collapse" data-target= "#colapse-target" >
-      <span class = "navbar-toggler-icon"></span>
-    </button>
-    <div class = "collapse navbar-collapse" id = "collapse_target">
-
-    <a href = "http://localhost:3000/my_wall" class = "logo" style='font-size:50px;color:white'> <i class='fas fa-user'></i>  </a>
-
-    <span class = "btn btn-dark " style='font-size:50px'>SweetUms</span>
-    
-    
-    <ul class = "navbar-nav mr-auto">   
-    </ul>
-
-    <ul class = "navbar-nav">   
-    
-      
-      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-pen' style='font-size:36px;color:white'> </i></a>
-
-    </ul>
-      <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <div>
-          <input type="checkbox" id="User" Value="User">
-          <span style = 'color:white'>User</span> 
-          
-          
-          <input type="checkbox" id="User" Value="User">
-          <span style = 'color:white'>Post</span> 
-          
-          <button class = "btn btn dark"><i class='fas fa-search' style='font-size:36px;color:white'></i></button>
-          </div>
-        </form>
-
-      
-    <ul class = "navbar-nav">
-      
-      <a href = "http://localhost:3000/posts" class = "btn btn-dark"> <i class='fas fa-home' style='font-size:36px;color:white'> </i></a>
-      <a href = "http://localhost:3000/registred_users/1/edit" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
-      
-
-      
-    </ul>
-
-    
-    </div>  
-    
-  </nav>
-
-<div class="row" style="margin-top: 100px">
-  <div class="col-md-2">
-
   
 
+<div class="row" style="margin-top: 50px">
   
-  </div>
-  <div class="col-md-8">
+  <div class="col-md-5 offset-1">
+    <h1>Post Edit</h1>
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -76,33 +20,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
+  <div class="input-group mb-3">
+    <div class="input-gruop-prepend"> 
+    <span class = "input-group-text "id="basic-addon1"> Title</span>
+
+    </div>
     <%= form.text_field :title, class: 'form-control', placeholder: "title" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
+  <div class="input-group mb-3">
+    <div class="input-gruop-prepend"> 
+    <span class = "input-group-text "id="basic-addon1"> Description</span>
+
+    </div>
     <%= form.text_field :description, class: 'form-control', placeholder: "Description" %>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
+  <div class="input-group mb-3">
+    <div class="input-gruop-prepend"> 
+    <span class = "input-group-text "id="basic-addon1"> Body</span>
+
+    </div>
     <%= form.text_area :body, class: 'form-control', placeholder: "Please, be nice!" %>
   </div>
 
-  <div class="field">
-    <%= form.label :country %>
+  <div class="input-group mb-3">
+    <div class="input-gruop-prepend"> 
+    <span class = "input-group-text "id="basic-addon1"> Country</span>
+
+    </div>
     <%= form.text_field :country, class: 'form-control', placeholder: "Country" %>
   </div>
 
-  <div class="field">
-    <%= form.label :city %>
+  <div class="input-group mb-3">
+    <div class="input-gruop-prepend"> 
+    <span class = "input-group-text "id="basic-addon1"> Title</span>
+
+    </div>
     <%= form.text_field :city, class: 'form-control', placeholder: "City" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Update", class: 'btn btn-dark active'%>
   </div>
 <% end %>
 </div>
