@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <script type="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+ <script type="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<title></title>
+</head>
+<body>
+
+<div class="row" style="margin-top: 100px">   
+</div>
+<div class="col-md-5">
+	<h1>Change Password</h1>
+	<%= form_for(:change_password, url: log_in_path) do |f| %>
+	<div class="input-group mb-3">
+       <%= f.password_field :mail, class: 'form-control', placeholder: "Password" %>            
+    </div>
+    <div class="input-group mb-3">
+       <%= f.password_field :mail, class: 'form-control', placeholder: "Confirm Password" %>            
+    </div>
+
+    <a href= "http://localhost:3000/posts" class = "btn btn-outline-dark active">Update</a>
+    
+    <% end %>
+</div>
+</body>
+</html>
