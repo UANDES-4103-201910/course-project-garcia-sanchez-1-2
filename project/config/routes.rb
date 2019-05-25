@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   resources :admin_black_lists
   resources :system_admin_dumpsters
   resources :admin_dumpsters
-  resources :system_admins
-  resources :admins
   resources :comment_images
   resources :comments
   resources :post_images
