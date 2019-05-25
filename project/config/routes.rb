@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :black_lists
   resources :inappropriates
   resources :dumpsters
-  resources :system_admin_black_lists
-  resources :admin_black_lists
   resources :comment_images
   resources :comments
   resources :post_images
