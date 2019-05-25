@@ -71,4 +71,5 @@ class RegistredUsersController < ApplicationController
     def registred_user_params
       params.require(:registred_user).permit(:mail, :city, :country, :phone, :name, :last_name, :password)
     end
+
 end

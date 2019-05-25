@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   get '/my_wall' => 'posts#wall', as: :my_wall
 
   get '/report' => 'posts#report', as: :report
- 
+  
+  get '/searched_users' => 'registred_users#search_user', as: :search_user
 
 
 end
