@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Registred user:</strong>
+  <%= @inappropriate.registred_user %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @inappropriate.post %>
+</p>
+
+<%= link_to 'Edit', edit_inappropriate_path(@inappropriate) %> |
+<%= link_to 'Back', inappropriates_path %>

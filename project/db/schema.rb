@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_174605) do
+ActiveRecord::Schema.define(version: 2019_05_25_215254) do
 
   create_table "admin_black_lists", force: :cascade do |t|
     t.integer "user_id"
@@ -21,31 +21,13 @@ ActiveRecord::Schema.define(version: 2019_04_12_174605) do
     t.index ["user_id"], name: "index_admin_black_lists_on_user_id"
   end
 
-  create_table "admin_dumpsters", force: :cascade do |t|
+  create_table "black_lists", force: :cascade do |t|
+    t.integer "registred_user_id"
     t.integer "post_id"
-    t.integer "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admin_id"], name: "index_admin_dumpsters_on_admin_id"
-    t.index ["post_id"], name: "index_admin_dumpsters_on_post_id"
-  end
-
-  create_table "admin_inappropriates", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "admin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["admin_id"], name: "index_admin_inappropriates_on_admin_id"
-    t.index ["post_id"], name: "index_admin_inappropriates_on_post_id"
-  end
-
-  create_table "admins", force: :cascade do |t|
-    t.string "mail"
-    t.string "password"
-    t.string "username"
-    t.string "geofence"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_black_lists_on_post_id"
+    t.index ["registred_user_id"], name: "index_black_lists_on_registred_user_id"
   end
 
   create_table "comment_images", force: :cascade do |t|
@@ -62,6 +44,24 @@ ActiveRecord::Schema.define(version: 2019_04_12_174605) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "dumpsters", force: :cascade do |t|
+    t.integer "registred_user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_dumpsters_on_post_id"
+    t.index ["registred_user_id"], name: "index_dumpsters_on_registred_user_id"
+  end
+
+  create_table "inappropriates", force: :cascade do |t|
+    t.integer "registred_user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_inappropriates_on_post_id"
+    t.index ["registred_user_id"], name: "index_inappropriates_on_registred_user_id"
   end
 
   create_table "post_images", force: :cascade do |t|
@@ -114,32 +114,6 @@ ActiveRecord::Schema.define(version: 2019_04_12_174605) do
     t.datetime "updated_at", null: false
     t.index ["system_admin_id"], name: "index_system_admin_black_lists_on_system_admin_id"
     t.index ["user_id"], name: "index_system_admin_black_lists_on_user_id"
-  end
-
-  create_table "system_admin_dumpsters", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "system_admin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_system_admin_dumpsters_on_post_id"
-    t.index ["system_admin_id"], name: "index_system_admin_dumpsters_on_system_admin_id"
-  end
-
-  create_table "system_admin_inappropriates", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "system_admin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_system_admin_inappropriates_on_post_id"
-    t.index ["system_admin_id"], name: "index_system_admin_inappropriates_on_system_admin_id"
-  end
-
-  create_table "system_admins", force: :cascade do |t|
-    t.string "mail"
-    t.string "password"
-    t.string "username"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "user_inappropriates", force: :cascade do |t|

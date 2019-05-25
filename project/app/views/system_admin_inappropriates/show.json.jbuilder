@@ -1,1 +1,0 @@
-json.partial! "system_admin_inappropriates/system_admin_inappropriate", system_admin_inappropriate: @system_admin_inappropriate
