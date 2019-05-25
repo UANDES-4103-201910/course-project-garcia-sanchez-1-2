@@ -5,27 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = [RegistredUser.new(mail: "tom@us.com", username: "tomgar12", password: "Qwer1234", name: "tom", last_name: "gar"),
-RegistredUser.new(mail: "mau@us.com", username: "resnak12", password: "Qwer1234",name: "mauro", last_name: "sanchez"), 
-RegistredUser.new(mail: "hug@us.com", username: "hugo12", password: "Qwer1234",name: "hugo", last_name: "dela"),
-RegistredUser.new(mail: "nic@us.com", username: "aspee12", password: "Qwer1234",name: "nico", last_name: "gor"),
-RegistredUser.new(mail: "mar@us.com", username: "costa12", password: "Qwer1234"),name: "martin", last_name: "concha"]
-
-for u in users do 
-	u.save!
-end
-
-admins = [Admin.new(mail: "admin1@ad.com", password: "Qwer123", username: "admin11", geofence: "Las condes"),
-Admin.new(mail: "admin2@ad.com", password: "Qwer123", username: "admin2", geofence: "Lo barnechea"),
-Admin.new(mail: "admin3@ad.com", password: "Qwer123", username: "admin3", geofence: "Vitacura")]
-
-for a in admins do 
-	a.save!
-end
-
-sys = SystemAdmin.new(mail: "system@sy.com", username: "super1", password: "Qwer123")
-
-sys.save!
-
+users = [RegistredUser.create(mail: "tomas@miuandes.com", username: "tomgar12", password: "Qwer1234", name: "tom", last_name: "gar", admin: false ,asystem: true),
+RegistredUser.create(mail: "mauro@miuandes.com", username: "resnak12", password: "Password123",name: "mauro", last_name: "sanchez", admin: false ,asystem: true), 
+RegistredUser.create(mail: "hugo@miuandes.com", username: "hugo12", password: "Qwer1234",name: "hugo", last_name: "dela", admin: false ,asystem: false),
+RegistredUser.create(mail: "nico@miuandes.com", username: "aspee12", password: "Qwer1234",name: "nico", last_name: "gor", admin: true ,asystem: false),
+RegistredUser.create(mail: "martin@miuandes.com", username: "costa12", password: "Qwer1234"),name: "martin", last_name: "concha", admin: false ,asystem: false]
 
 
