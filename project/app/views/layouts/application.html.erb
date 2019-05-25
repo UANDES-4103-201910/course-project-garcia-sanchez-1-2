@@ -18,7 +18,7 @@
   <body alink="#00FF00" vlink="#00FF00" link="##00FF00" style="background-color:#74C677">
 
     <% flash.each do |type, message| %>
-    <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" style = "margin-top: 95px">
+    <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" style = "margin-top: 90px">
       
       <%= message %>
     </div>
@@ -50,12 +50,12 @@
       <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <div>
-          <input type="checkbox" id="User" Value="User">
-          <span style = 'color:white'>User</span> 
+          <input type="checkbox" name="nick_name" value="true">
+          <span style = 'color:white'>Nickname</span> 
           
           
-          <input type="checkbox" id="User" Value="User">
-          <span style = 'color:white'>Post</span> 
+          <input type="checkbox" name="location" value="true">
+          <span style = 'color:white'>Location</span> 
           
           <button class = "btn btn dark"><i class='fas fa-search' style='font-size:36px;color:white'></i></button>
           </div>
