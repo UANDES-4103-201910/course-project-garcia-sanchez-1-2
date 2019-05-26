@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
   
+  get 'search/create'
+  get 'search/new'
+  get 'search/index'
+  get 'search/index'
+  get 'search/new'
+  get 'search/create'
   resources :black_lists
   resources :inappropriates
   resources :dumpsters
