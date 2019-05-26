@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_25_224631) do
+ActiveRecord::Schema.define(version: 2019_05_25_234732) do
 
   create_table "black_lists", force: :cascade do |t|
     t.integer "registred_user_id"
@@ -96,8 +96,7 @@ ActiveRecord::Schema.define(version: 2019_05_25_224631) do
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin"
-    t.boolean "asystem"
+    t.integer "role"
   end
 
 end
