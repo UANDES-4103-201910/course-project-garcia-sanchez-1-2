@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.string :geofence
       t.string :country
       t.string :city
-      t.references :registred_user, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

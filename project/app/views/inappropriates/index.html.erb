@@ -14,7 +14,7 @@
   <tbody>
     <% @inappropriates.each do |inappropriate| %>
       <tr>
-        <td><%= inappropriate.registred_user %></td>
+        <td><%= inappropriate.user %></td>
         <td><%= inappropriate.post %></td>
         <td><%= link_to 'Show', inappropriate %></td>
         <td><%= link_to 'Edit', edit_inappropriate_path(inappropriate) %></td>

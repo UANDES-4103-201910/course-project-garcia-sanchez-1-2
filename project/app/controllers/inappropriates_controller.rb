@@ -69,6 +69,6 @@ class InappropriatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inappropriate_params
-      params.require(:inappropriate).permit(:registred_user_id, :post_id)
+      params.require(:inappropriate).permit(:user_id, :post_id)
     end
 end

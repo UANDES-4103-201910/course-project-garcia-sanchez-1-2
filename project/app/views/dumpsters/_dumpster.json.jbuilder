@@ -1,2 +1,2 @@
-json.extract! dumpster, :id, :registred_user_id, :post_id, :created_at, :updated_at
+json.extract! dumpster, :id, :user_id, :post_id, :created_at, :updated_at
 json.url dumpster_url(dumpster, format: :json)

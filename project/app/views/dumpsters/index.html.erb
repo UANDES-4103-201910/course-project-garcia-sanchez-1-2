@@ -14,7 +14,7 @@
   <tbody>
     <% @dumpsters.each do |dumpster| %>
       <tr>
-        <td><%= dumpster.registred_user %></td>
+        <td><%= dumpster.user %></td>
         <td><%= dumpster.post %></td>
         <td><%= link_to 'Show', dumpster %></td>
         <td><%= link_to 'Edit', edit_dumpster_path(dumpster) %></td>
