@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   resources :black_lists
   resources :inappropriates
   resources :dumpsters
-  resources :comment_images
-  resources :comments
+  
   resources :post_images
-  resources :posts
+  resources :posts do
+    resources :comments
+    resources :comment_images
+  end
   resources :profiles
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
