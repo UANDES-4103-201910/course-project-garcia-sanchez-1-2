@@ -66,11 +66,11 @@
       
       <a href = "http://localhost:3000/posts" class = "btn btn-dark"> <i class='fas fa-home' style='font-size:36px;color:white'> </i></a>
       <a href = "http://localhost:3000/registred_users/1/edit" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
-      <a href = "http://localhost:3000//users/sign_out" class = "btn btn-dark"> <i class='fas fa-sign-out-alt' style='font-size:36px;color:white'> </i></a>
-      
+      <button class="btn btn-dark"> <%= link_to('Logout', destroy_user_session_path ,:method =>:delete) %> </button>
+
 
     </ul>
-      <a href = "http://localhost:3000//users/sign_in" class = "btn btn-dark" style='font-size:36px;color:white'> Sign In</a> 
+      <a href = "http://localhost:3000/users/sign_in" class = "btn btn-dark" style='font-size:36px;color:white'> Sign In</a> 
     
     </div>  
     
