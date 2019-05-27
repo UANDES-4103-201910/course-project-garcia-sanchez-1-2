@@ -13,12 +13,12 @@
 ActiveRecord::Schema.define(version: 2019_05_27_025054) do
 
   create_table "black_lists", force: :cascade do |t|
-    t.integer "registred_user_id"
+    t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_black_lists_on_post_id"
-    t.index ["registred_user_id"], name: "index_black_lists_on_registred_user_id"
+    t.index ["user_id"], name: "index_black_lists_on_user_id"
   end
 
   create_table "comment_images", force: :cascade do |t|
@@ -38,21 +38,21 @@ ActiveRecord::Schema.define(version: 2019_05_27_025054) do
   end
 
   create_table "dumpsters", force: :cascade do |t|
-    t.integer "registred_user_id"
+    t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_dumpsters_on_post_id"
-    t.index ["registred_user_id"], name: "index_dumpsters_on_registred_user_id"
+    t.index ["user_id"], name: "index_dumpsters_on_user_id"
   end
 
   create_table "inappropriates", force: :cascade do |t|
-    t.integer "registred_user_id"
+    t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_inappropriates_on_post_id"
-    t.index ["registred_user_id"], name: "index_inappropriates_on_registred_user_id"
+    t.index ["user_id"], name: "index_inappropriates_on_user_id"
   end
 
   create_table "post_images", force: :cascade do |t|
@@ -79,24 +79,10 @@ ActiveRecord::Schema.define(version: 2019_05_27_025054) do
     t.string "geofence"
     t.string "country"
     t.string "city"
-    t.integer "registred_user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["registred_user_id"], name: "index_profiles_on_registred_user_id"
-  end
-
-  create_table "registred_users", force: :cascade do |t|
-    t.string "name"
-    t.string "last_name"
-    t.string "mail"
-    t.string "password"
-    t.string "username"
-    t.integer "phone"
-    t.string "city"
-    t.string "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "role"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,6 +90,13 @@ ActiveRecord::Schema.define(version: 2019_05_27_025054) do
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
+    t.string "username"
+    t.string "name"
+    t.string "last_name"
+    t.integer "phone"
+    t.string "city"
+    t.string "country"
+    t.integer "role"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
