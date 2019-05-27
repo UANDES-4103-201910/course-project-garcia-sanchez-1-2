@@ -25,10 +25,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params)
-    if @comment.save
-      redirect_to post_path(@post)
-    end
+    @comment = @post.comment.create(comment_params)
+    redirect_to post_path(@post)
   end
 
   # PATCH/PUT /comments/1

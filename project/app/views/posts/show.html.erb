@@ -34,15 +34,23 @@
         <hr />
       </div>
       <div class="col-md-4">
-        <h2>Were will be comments :DD :D</h2></div>
-        <h2>Add a comment:</h2>
-        <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+       
+        <h2>Comments</h2>
+        <% @post.comment.each do |comment| %>   
           <p>
-            <%= form.label :body %><br>
-            <%= form.text_area :body %>
+            <strong>Comment:</strong>
+            <%= comment.content %>
+          </p>
+        <% end %>
+        <%= form_with(model: [ @post, @post.comment.build ], local: true) do |form| %>
+          <p>
+            <%= form.label :content %><br>
+            <%= form.text_area :content%>
           </p>
           <p>
-            <%= form.submit %>
+            <div class="row" style="margin-bottom: : 35px">
+              <%= form.submit %>
+            </div>
           </p>
         <% end %>
       </div>
