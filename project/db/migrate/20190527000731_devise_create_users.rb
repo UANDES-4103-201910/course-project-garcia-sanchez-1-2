@@ -11,6 +11,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
 
+      #extra:D
+      t.string :username
+      t.string :name
+      t.string :last_name
+      t.integer :phone
+      t.string :city
+      t.string :country
+      t.integer :role
+
       ## Rememberable
       t.datetime :remember_created_at
 
