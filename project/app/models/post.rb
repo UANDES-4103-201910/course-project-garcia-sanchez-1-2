@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  #belongs_to :registred_user
+  #belongs_to :user
   has_one :dumpster
   has_one :inappropriate
   has_many :inappropriate

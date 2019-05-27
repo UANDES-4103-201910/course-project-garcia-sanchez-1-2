@@ -24,7 +24,7 @@ class NewestController < ApplicationController
     	end
 	end
 	def post_params
-      #params.require(:post).permit(:title, :description, :body, :country, :city, :geofence, :registred_user_id)
+      #params.require(:post).permit(:title, :description, :body, :country, :city, :geofence, :user_id)
       params.require(:newest).permit(:title, :description, :body)
     end
 end

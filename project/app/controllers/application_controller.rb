@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
 	include SessionsHelper
 	def current_registred_user
-    session = session[:registred_user_id]
+    session = session[:user_id]
     if session
-      @current_registred__user ||= RegistredUser.find(session)
+      @current_user ||= User.find(session)
     end
   end
 end

@@ -14,7 +14,7 @@
   <tbody>
     <% @black_lists.each do |black_list| %>
       <tr>
-        <td><%= black_list.registred_user %></td>
+        <td><%= black_list.user %></td>
         <td><%= black_list.post %></td>
         <td><%= link_to 'Show', black_list %></td>
         <td><%= link_to 'Edit', edit_black_list_path(black_list) %></td>
