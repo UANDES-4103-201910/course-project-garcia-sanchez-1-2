@@ -16,17 +16,14 @@
   </thead>
 
   <tbody>
-    <% @profiles.each do |profile| %>
+    <% @users = User.all %>
+    <% @users.each do |u| %>
       <tr>
-        <td><%= profile.photo %></td>
-        <td><%= profile.biography %></td>
-        <td><%= profile.geofence %></td>
-        <td><%= profile.country %></td>
-        <td><%= profile.city %></td>
-        <td><%= profile.registred_user %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= u.username %></td>
+        
+        <td><%= link_to 'Show', u %></td>
+        <td><%= link_to 'Edit', edit_user_path(u) %></td>
+        <td><%= link_to 'Destroy', u, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
