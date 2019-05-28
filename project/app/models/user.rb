@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # , :lockable, :timeoutable,  and :omniauthable
   #before_action :authenticate_user!
+  acts_as_voter
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable,
   		 :omniauthable, omniauth_providers: [:google_oauth2]

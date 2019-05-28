@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /posts
   # GET /posts.json
@@ -69,6 +70,17 @@ class PostsController < ApplicationController
       format.html { redirect_to my_wall_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+     
+    @post.upvote_from current_user
+    redirect_to root_path
+  end
+
+  def downvote
+    @post.downvote_from current_user
+    redirect_to root_path
   end
 
   private
