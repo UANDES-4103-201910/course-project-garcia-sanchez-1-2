@@ -74,7 +74,7 @@
             <%= comment.content %>
           </p>
         <% end %>
-        <%if current_user && current_user == 1%>
+        <%if current_user && current_user.role == 1%>
         <%= form_with(model: [ @post, @post.comment.build ], local: true) do |form| %>
           <p>
             <%= form.text_area :content, placeholder:"Tap your reply!"%>
