@@ -19,15 +19,12 @@
   </head>
 
   <body alink="#00FF00" vlink="#00FF00" link="##00FF00" style="background-color:#74C677">
-    
+
     <% flash.each do |type, message| %>
     <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" style = "margin-top: 69px">
-      
       <%= message %>
     </div>
     <% end %>
-
-    
 
     <nav class = "nav navbar-expand-md navbar-dark bg-dark fixed-top">
     
@@ -42,14 +39,31 @@
 
     <span class = "btn btn-dark" style='font-size:36px'>SweetUms</span>
     
-    
     <ul class = "navbar-nav mr-auto">   
     </ul>
 
     <ul class = "navbar-nav">   
     
-      <%if current_user%>
-      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-pen' style='font-size:36px;color:white'> </i></a>
+      <%if current_user && current_user.role == 1%>
+      
+      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-feather-alt' style='font-size:36px;color:white'> </i></a>
+      
+      <%elsif current_user && current_user.role == 2%>
+      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fa fa-trash' style='font-size:36px;color:white'> </i></a>
+
+      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
+
+      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
+       
+      <%elsif current_user && current_user.role == 3%> 
+      
+      <a href = "http://localhost:3000/dumpsters" class = "btn btn-dark"> <i class='fas fa-trash-alt' style='font-size:36px;color:white'> </i></a>
+
+      <a href = "http://localhost:3000/black_lists" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
+
+      <a href = "http://localhost:3000/profiles" class = "btn btn-dark"> <i class='fas fa-font' style='font-size:36px;color:white'> </i></a>
+
+      <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
       <% end -%>
     </ul>
       <form class="form-inline">
@@ -58,7 +72,6 @@
           <input type="checkbox" name="nick_name" value="true">
           <span style = 'color:white'>Nickname</span> 
           
-          
           <input type="checkbox" name="location" value="true">
           <span style = 'color:white'>Location</span> 
           
@@ -66,28 +79,22 @@
           </div>
         </form>
 
-      
     <ul class = "nav navbar-expand-md navbar-dark bg-dark ">
-      
-      
-      
       <% if current_user %>
       <a href = "http://localhost:3000/users/edit" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
       <%end%>
-
     </ul>
 
       <%if current_user%>
-      
       <%= link_to destroy_user_session_path ,method: :delete do%>
       <button class="btn btn-dark" style='font-size:36px;color:white'> Log Out </button>
       <% end -%>
       <% end -%>
 
-
       <%if current_user == nil%>
       <a href = "http://localhost:3000/users/sign_in" class = "btn btn-dark" style='font-size:36px;color:white'> Sign In</a> 
       <% end -%>
+
     </div>  
     
   </nav>
@@ -102,6 +109,6 @@
      <script type="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
    <script type="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-   
+
   </body>
 </html>
