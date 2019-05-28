@@ -33,7 +33,7 @@
     </button>
     <div class = "collapse navbar-collapse" id = "collapse_target">
       <a href = "http://localhost:3000/posts" class = "btn btn-dark"> <i class='fas fa-home' style='font-size:36px;color:white'> </i></a>
-    <%if current_user%>  
+    <%if current_user && current_user.role == 1%>  
     <a href = "http://localhost:3000/my_wall" class = "logo" style='font-size:36px;color:white'> <i class='fas fa-user'></i>  </a>
     <% end -%>
 
@@ -49,11 +49,11 @@
       <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-feather-alt' style='font-size:36px;color:white'> </i></a>
       
       <%elsif current_user && current_user.role == 2%>
-      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fa fa-trash' style='font-size:36px;color:white'> </i></a>
+      <a href = "http://localhost:3000/dumpsters" class = "btn btn-dark"> <i class='fas fa-trash-alt' style='font-size:36px;color:white'> </i></a>
 
-      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
+      <a href = "http://localhost:3000/black_lists" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
 
-      <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
+      <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
        
       <%elsif current_user && current_user.role == 3%> 
       

@@ -42,10 +42,11 @@
             <%= comment.content %>
           </p>
         <% end %>
+        <%if current_user && current_user == 1%>
         <%= form_with(model: [ @post, @post.comment.build ], local: true) do |form| %>
           <p>
-            <%= form.label :content %><br>
-            <%= form.text_area :content%>
+            <%= form.text_area :content, placeholder:"Tap your reply!"%>
+
           </p>
           <p>
             <div class="row" style="margin-bottom: : 35px">
@@ -53,6 +54,7 @@
             </div>
           </p>
         <% end %>
+        <% end -%>
       </div>
     </div>
 </div>
