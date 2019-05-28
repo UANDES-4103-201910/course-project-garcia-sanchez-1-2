@@ -7,20 +7,24 @@ class Ability
         
         if user.role == 3
             can :manage, [Dumpster, BlackList, Inappropriate]
-            can :manage, User do |user|
-                user.role == 1..2
+            can :manage, User do |this_user|
+                this_user.role == 1..2
             end
             can [:read, :destroy], [Post, Comment, PostImage, CommentImage]
 
         elsif user.role == 2
             can :manage, [Dumpster, BlackList, Inappropriate]
             can [:read, :destroy], [Post, Comment, PostImage, CommentImage]
-            can :manage, User do |user|
-                user.role == 1
+            can :manage, User do |this_user|
+                this_user.role == 1
             end
        
         elsif user.role == 1
-            #Posts
+            #user edit
+            can :update, User do |this_user|
+                this_user == user
+            end
+            #posts
             can :update, Post do |post|
                 post.user == user
             end
