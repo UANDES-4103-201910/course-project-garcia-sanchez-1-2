@@ -16,9 +16,9 @@
   </head>
 
   <body alink="#00FF00" vlink="#00FF00" link="##00FF00" style="background-color:#74C677">
-
+    
     <% flash.each do |type, message| %>
-    <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" style = "margin-top: 90px">
+    <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" style = "margin-top: 69px">
       
       <%= message %>
     </div>
@@ -32,10 +32,12 @@
       <span class = "navbar-toggler-icon"></span>
     </button>
     <div class = "collapse navbar-collapse" id = "collapse_target">
+      <a href = "http://localhost:3000/posts" class = "btn btn-dark"> <i class='fas fa-home' style='font-size:36px;color:white'> </i></a>
+    <%if current_user%>  
+    <a href = "http://localhost:3000/my_wall" class = "logo" style='font-size:36px;color:white'> <i class='fas fa-user'></i>  </a>
+    <% end -%>
 
-    <a href = "http://localhost:3000/my_wall" class = "logo" style='font-size:50px;color:white'> <i class='fas fa-user'></i>  </a>
-
-    <span class = "btn btn-dark" style='font-size:50px'>SweetUms</span>
+    <span class = "btn btn-dark" style='font-size:36px'>SweetUms</span>
     
     
     <ul class = "navbar-nav mr-auto">   
@@ -43,9 +45,9 @@
 
     <ul class = "navbar-nav">   
     
-      
+      <%if current_user%>
       <a href = "http://localhost:3000/posts/new" class = "btn btn-dark"> <i class='fas fa-pen' style='font-size:36px;color:white'> </i></a>
-
+      <% end -%>
     </ul>
       <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -64,14 +66,25 @@
       
     <ul class = "nav navbar-expand-md navbar-dark bg-dark ">
       
-      <a href = "http://localhost:3000/posts" class = "btn btn-dark"> <i class='fas fa-home' style='font-size:36px;color:white'> </i></a>
+      
+      
+      <% if current_user %>
       <a href = "http://localhost:3000/users/edit" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
+      <%end%>
 
     </ul>
 
-      <button class="btn btn-dark" style='font-size:36px;color:white'> <%= link_to('Logout', destroy_user_session_path ,:method =>:delete) %> </button>
+      <%if current_user%>
+      
+      <%= link_to destroy_user_session_path ,method: :delete do%>
+      <button class="btn btn-dark" style='font-size:36px;color:white'> Log Out </button>
+      <% end -%>
+      <% end -%>
+
+
+      <%if current_user == nil%>
       <a href = "http://localhost:3000/users/sign_in" class = "btn btn-dark" style='font-size:36px;color:white'> Sign In</a> 
-    
+      <% end -%>
     </div>  
     
   </nav>
@@ -86,5 +99,6 @@
      <script type="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
    <script type="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   
   </body>
 </html>

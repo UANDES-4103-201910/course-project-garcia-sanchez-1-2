@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2019_05_27_025054) do
     t.integer "phone"
     t.string "city"
     t.string "country"
-    t.integer "role"
+    t.integer "role", default: 1
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"

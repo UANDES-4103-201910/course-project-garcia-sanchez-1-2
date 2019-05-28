@@ -1,37 +1,69 @@
 # frozen_string_literal: true
 
 class Ability
-  include CanCan::Ability
+  include CanCan::Ability  
+        # Define abilities for the passed in user here. For example:
+        user ||= User.new(role: nil) # guest user (not logged in)
+        
+        if user.role == 3
+            can :manage, [Dumpster, BlackList, Inappropriate]
+            can :manage, User do |this_user|
+                this_user.role == 1..2
+            end
+            can [:read, :destroy], [Post, Comment, PostImage, CommentImage]
 
+        elsif user.role == 2
+            can :manage, [Dumpster, BlackList, Inappropriate]
+            can [:read, :destroy], [Post, Comment, PostImage, CommentImage]
+            can :manage, User do |this_user|
+                this_user.role == 1
+            end
+       
+        elsif user.role == 1
+            #user edit
+            can :update, User do |this_user|
+                this_user == user
+            end
+            #posts
+            can :update, Post do |post|
+                post.user == user
+            end
+            can :destroy, Post do |post|
+                post.user == user
+            end
+            #post images
+            can :update, PostImage do |post_image|
+                post_image.user == user
+            end
+            can :destroy, PostImage do |post_image|
+                post_image.user == user
+            end
+            #comments
+            can :update, Comment do |comment|
+                comment.user == user
+            end
+            can :destroy, Comment do |comment|
+                comment.user == user
+            end
+            #comment images
+            can :update, CommentImage do |comment_image|
+                comment_image.user == user
+            end
+            can :destroy, CommentImage do |comment_image|
+                comment_image.user == user
+            end
+            #votes
+            can :destroy, Vote do |vote|
+                vote.user == user
+            end
 
-      
-  
-
-    # Define abilities for the passed in user here. For example:
-    #
-    #   user ||= User.new # guest user (not logged in)
-    #   if user.admin?
-    #     can :manage, :all
-    #   else
-    #     can :read, :all
-    #   end
-    #
-    # The first argument to `can` is the action you are giving the user
-    # permission to do.
-    # If you pass :manage it will apply to every action. Other common actions
-    # here are :read, :create, :update and :destroy.
-    #
-    # The second argument is the resource the user can perform the action on.
-    # If you pass :all it will apply to every resource. Otherwise pass a Ruby
-    # class of the resource.
-    #
-    # The third argument is an optional hash of conditions to further filter the
-    # objects.
-    # For example, here the user can only update published articles.
-    #
-    #   can :update, Article, :published => true
-    #
-    # See the wiki for details:
-    # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+            can [:update, :destroy] ,Comment, active: :true, user_id: user.id           
+            can [:read, :create], [Post, Comment]
+            can :crud, Vote
+        else
+            can :read, [Post, Comment, PostImage, CommentImage, Vote]   
+        end
+    
+    
   end
 end
