@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get '/report' => 'posts#report', as: :report
   
   get '/searched_users' => 'registred_users#search_user', as: :search_user
+  
 
   #delete '/users/sign_out' => 'users/sessions#destroy', as: :destroy_user_session
 

@@ -6,12 +6,15 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
-  def wall
-    @posts = Post.all
-  end
+
 
   def report 
     
+  end
+
+  def wall
+    @user= User.find(current_user.id)
+    @posts = Post.all
   end
 
   # GET /posts/1
@@ -78,4 +81,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :description, :body, :country, :city)
     end
+  
+
+    
 end

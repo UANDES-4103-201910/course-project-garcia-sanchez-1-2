@@ -12,11 +12,18 @@
 
 <div class = "row">
   
-
     
 
     <dir class="col-md-7 offset-1">
-    <h1>Hi!</h1>
+
+      <% current = current_user.id%>
+      <h1> <%= @user.name%> <%= @user.last_name%> </h1> 
+      <h4> <%= @user.username%> </h4> 
+      <h4> <%= @user.phone%></h4>
+      <h4> <%= @user.city%></h4>
+      <h4> <%= @user.country%></h4>
+
+
       <div class="row" style="margin-left: 0px">
         <div class="col-md-8"></div>
         <div class="col-md-4" >
@@ -76,29 +83,18 @@
           <button class = "btn btn-outline-light" style='font-size:25px;color:black'>Share</button>
           <button class = "btn btn dark" style='font-size:25px;color:black'>99 <i class='fas fa-check' style='font-size:25px;color:black'></i></button>
           <button class = "btn btn dark" style='font-size:25px;color:black'>99 <i class='fas fa-times' style='font-size:25px;color:black'></i></button>
-
-         
-
         </div>  
-
-        
-        </div>
-
-        
-
-        </div>
-      
         <hr />
-          <div class="row">
             
           <div class = " btn btn-outline-light active"><%= link_to 'Edit ', edit_post_path(p) %></div>
           
           <div class = " btn btn-outline-light active"><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></div>
           </div> 
-        </div>
+        
         <hr />
         
       <% end %>
+    </div>
     </div>
 </div>
 
