@@ -18,7 +18,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :phone
       t.string :city
       t.string :country
-      t.integer :role
+      t.integer :role, default: 1
 
       ## Rememberable
       t.datetime :remember_created_at
