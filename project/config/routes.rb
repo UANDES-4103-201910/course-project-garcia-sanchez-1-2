@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
     resources :comment_images
+    member do
+      put "like" => "posts#upvote"
+      put "unlike" => "posts#downvote"
+    end
   end
   resources :profiles
   resources :users
