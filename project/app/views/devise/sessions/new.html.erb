@@ -8,31 +8,28 @@
 <div class="row" style="margin-top: 100px;">
   <div class="col-md-6">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
-
-
   <div class="row">
     <div class="col md-3 offset-3">      
-    <h2>Welcome To SweetUms!</h2>  
-    <div class="input-group mb-3">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control", placeholder: "Email: "%>
-    </div>
-
-    <div class="input-group mb-3" >
-      <%= f.password_field :password, autocomplete: "current-password" , class: "form-control", placeholder: "Password:"%>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="input-group">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, placeholder: "wn" %>
+      <h2>Welcome To SweetUms!</h2>  
+      <div class="input-group mb-3">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control", placeholder: "Email: "%>
       </div>
-    <% end %>
 
-    <div class="actions"  >
-      <%= f.submit "Log in", class: "btn btn-dark" %>
-    </div>
-    <%= render "devise/shared/links" %>
+      <div class="input-group mb-3" >
+        <%= f.password_field :password, autocomplete: "current-password" , class: "form-control", placeholder: "Password:"%>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="input-group">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, placeholder: "wn" %>
+        </div>
+      <% end %>
+
+      <div class="actions"  >
+        <%= f.submit "Log in", class: "btn btn-light" %>
+      </div>
+      <%= render "devise/shared/links" %>
   
     </div>
   </div>
@@ -45,4 +42,4 @@
 
 
 </body>
-</html>
+</html> 

@@ -15,6 +15,14 @@
   <div class="col md-3 offset-3">
     <h2>Sign up</h2>
     <div class="input-group mb-3">
+      <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Name:" %>
+    </div>
+
+    <div class="input-group mb-3">
+      <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name:" %>
+    </div>
+
+    <div class="input-group mb-3">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email:" %>
     </div>
 
@@ -23,12 +31,11 @@
     </div>
 
     <div class="input-group mb-3">
-      
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Password:" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up", class: "btn btn-dark"%>
+      <%= f.submit "Sign up", class: "btn btn-light"%>
     </div>
     
     <%= render "devise/shared/links" %>

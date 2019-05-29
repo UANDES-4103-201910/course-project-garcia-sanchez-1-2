@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
-	include SessionsHelper
-	def current_registred_user
-    session = session[:user_id]
-    if session
-      @current_user ||= User.find(session)
+	before_action :configure_permitted_parameters, if: :devise_controller?
+	protected
+
+    def configure_permitted_parameters
+    	# Permit the `subscribe_newsletter` parameter along with the other
+    	# sign up parameters.
+    	devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name])
+    	devise_parameter_sanitizer.permit(:account_update, except: [:password])
     end
-  end
 end
