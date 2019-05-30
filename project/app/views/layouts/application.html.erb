@@ -54,6 +54,12 @@
             <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
           <% end -%>
         </ul>
+        <%=form_tag search_path, :method => "get" do %>
+        <%= text_field_tag :search, params[:search]%>
+        <%= submit_tag "search" %>
+        <% end %>
+
+
     
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

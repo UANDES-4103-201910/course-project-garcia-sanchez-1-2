@@ -1,2 +1,39 @@
-<h1>Search#index</h1>
-<p>Find me in app/views/search/index.html.erb</p>
+<div class="row" style="margin-top: 100px">   
+</div>
+<div class="row mb-4">
+
+
+  <div class="col-7 offset-1">
+    <div class="card">
+      <div class="card-header1">  
+        <h2>  Searched users</h2>
+        </div>
+        <div class="card-body">
+
+        <% @users.each do |user| %>
+
+            <div class="card float-left " style="width: 100%" >
+
+            <div class="card-body float-left" style="height:auto; min-height: 100px;">
+              <% if user.name != nil%>
+               <h4 class="card-title"><%= user.name%> <%= user.last_name%></h4>
+               <h4 class="card-title"><%= user.email%></h4>
+               <h4 class="card-title"><%= user.username%></h4>
+               <h4 class="card-title"><%= user.city%>  <%= user.country%> </h4>
+               <h4 class="card-title"><%= user.phone%></h4>
+              <%else%>
+              <h4 class="card-title">No name</h4>
+              <%end%>
+
+            </div>
+
+          </div>
+        <%end%>
+
+
+
+
+
+
+    </div>
+  </div>

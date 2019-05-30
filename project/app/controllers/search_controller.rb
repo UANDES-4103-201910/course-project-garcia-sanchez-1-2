@@ -6,16 +6,11 @@ class SearchController < ApplicationController
   end
 
   def index
-  	location = params[:search][:location]
-  	nick_name = params[:search][:nick_name]
-  	if location?
-  		@search = User.where(city: location || country: location)
-  	elsif nick_name?
-  		@search = User.where(username: nick_name)
-  	elsif location? && nick_name
-  		@search = User.where(username: nick_name || city: location || country: location)
-  	else
-  		flash[:error] = "You have to select at least one of the options."
-  			
+    if params[:search].blank?  
+      redirect_to(root_path, alert: "Its empty !") and return  
+    else  
+      @users = User.where(["username LIKE ?", "%#{params[:search]}%"] || ["city LIKE ?", "%#{params[:search]}%"])
+      #@citys = User.where(["city LIKE ?", "%#{params[:search]}%"])
+    end   
   end
 end
