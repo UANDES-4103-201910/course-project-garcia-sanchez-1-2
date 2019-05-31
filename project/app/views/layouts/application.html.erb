@@ -16,18 +16,12 @@
     .like:hover{
       text-decoration: none;
     }
-    .searchbbar{
-      size: 10000px
-      
-    }
+
     </style>
   </head>
-<body alink="#00FF00" vlink="#00FF00" link="##00FF00" style="background-color:#74C677">
+<body alink="#00FF00" vlink="#00FF00" link="##00FF00" style="background-color: #f1f1f1">
 <header>
-  <% flash.each do |type, message| %>
-    <%= message %>
-  </div>
-  <% end %>
+
 
   <nav class = "nav navbar-expand-md navbar-dark bg-dark ">
     <button class = "navbar-toggler" data-toggle = "collapse" data-target= "#colapse-target" >
@@ -51,7 +45,7 @@
           <a href = "http://localhost:3000/posts/new" class ="btn btn-dark"><i class='fas fa-feather-alt' style='font-size:36px;color:white'></i></a>
 
         <%elsif current_user && current_user.role == 2%>
-  <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" style = "margin-top: 69px">
+  <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" >
           <a href = "http://localhost:3000/dumpsters" class = "btn btn-dark"> <i class='fas fa-trash-alt' style='font-size:36px;color:white'></i></a>
           <a href = "http://localhost:3000/black_lists" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
           <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
@@ -100,8 +94,14 @@
     <span class = "btn btn-dark " style='font-size:10px' >Terms and Conditions</span>
     <span class = "btn btn-dark " style='font-size:10px' >Use Policy</span>
   </nav>
-  
-<div class="container">
+
+
+<div class="container" style="background-color: #f8f9fa">
+  <% flash.each do |type, message| %>
+    <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" >
+      <%= message %>
+    </div>
+    <% end %>
   <%= yield %>
 </div>
   <script type="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 

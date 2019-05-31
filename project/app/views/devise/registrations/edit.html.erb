@@ -35,9 +35,20 @@
           <div class="input-group mb-3">
             <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "Current Password:" %>
           </div>
-
+          <div class="input-group mb-3">
+            <%= f.text_field :username, class: "form-control", placeholder: "Userame:" %>
+          </div>
           <div class="input-group mb-3">
             <%= f.text_field :name, autocomplete: "name", class: "form-control", placeholder: "Name:" %>
+          </div>
+          <div class="input-group mb-3">
+            <%= f.text_field :last_name, autocomplete: "Last Name", class: "form-control", placeholder: "Last Name:" %>
+          </div>
+          <div class="input-group mb-3">
+            <%= f.text_area :bio, autocomplete: "Biography", class: "form-control", placeholder: "Be your self:" %>
+          </div>
+          <div class="input-group mb-3">
+            <%= f.text_field :phone, class: "form-control", placeholder: "Phone:" %>
           </div>
 
           <div class="actions">
