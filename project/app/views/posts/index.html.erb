@@ -27,9 +27,15 @@
         <div class="col-md-14"></div>
 
         <div class="row">
-          <div class="col-md-9">
+          <div class="col-md-10">
           <h2 class = " btn btn-outline-light active" style = "font-size:30px" ><%= link_to p.title, p%></h2> 
           <button type="button" class="btn btn-info" aria-label="Left Align" style = "font-size:10px">Solved</button>      
+          </div>
+          <div class="col-md-2" >
+           <%if current_user%>   
+           <div class = " btn btn-outline-light active"><%= link_to 'Report', report_path %></div>
+           
+           <% end -%>   
           </div>
         </div>
 
@@ -81,14 +87,9 @@
           </div>
         </div>  
         </div>
-        <hr/>
+      
 
-        <div class="row">
-       
-       <%if current_user%>   
-       <div class = " btn btn-outline-light active"><%= link_to 'Report', report_path %></div>
-       <% end -%>   
-        </div>
+
 
         </div>
         <hr />
