@@ -12,94 +12,101 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+    .like:hover{
+      text-decoration: none;
+    }
+    </style>
   </head>
-  <body alink="#00FF00" vlink="#00FF00" link="##00FF00" style="background-color:#74C677">
+<body alink="#00FF00" vlink="#00FF00" link="##00FF00" style="background-color:#74C677">
+<header>
+  <% flash.each do |type, message| %>
+    <%= message %>
+  </div>
+  <% end %>
 
-    <% flash.each do |type, message| %>
-    <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" style = "margin-top: 69px">
-      <%= message %>
-    </div>
-    <% end %>
-
-    <nav class = "nav navbar-expand-md navbar-dark bg-dark fixed-top">
-      <button class = "navbar-toggler" data-toggle = "collapse" data-target= "#colapse-target" >
-        <span class = "navbar-toggler-icon"></span>
-      </button>
-      <div class = "collapse navbar-collapse" id = "collapse_target">
-      
-        <%if current_user && current_user.role == 1%>  
-          <a href = "http://localhost:3000/my_wall" class = "logo" style='font-size:36px;color:white'> <i class='fas fa-user'></i>  </a>
-        <% end -%>
-
-        <%= link_to root_path do%>
-          <button class="btn btn-dark" style='font-size:36px;color:white'> SweetUms </button>
-        <% end -%>
+  <nav class = "nav navbar-expand-md navbar-dark bg-dark ">
+    <button class = "navbar-toggler" data-toggle = "collapse" data-target= "#colapse-target" >
+      <span class = "navbar-toggler-icon"></span>
+    </button>
+    <div class = "collapse navbar-collapse" id = "collapse_target">
     
-        <ul class = "navbar-nav mr-auto"></ul>
+      <%if current_user && current_user.role == 1%>  
+        <a href = "http://localhost:3000/my_wall" class = "logo" style='font-size:36px;color:white'> <i class='fas fa-user'></i>  </a>
+      <% end -%>
 
-        <ul class = "navbar-nav">   
-    
-          <%if current_user && current_user.role == 1%>
-            <a href = "http://localhost:3000/posts/new" class ="btn btn-dark"><i class='fas fa-feather-alt' style='font-size:36px;color:white'></i></a>
-
-          <%elsif current_user && current_user.role == 2%>
-            <a href = "http://localhost:3000/dumpsters" class = "btn btn-dark"> <i class='fas fa-trash-alt' style='font-size:36px;color:white'></i></a>
-            <a href = "http://localhost:3000/black_lists" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
-            <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
-         
-          <%elsif current_user && current_user.role == 3%> 
-            <a href = "http://localhost:3000/dumpsters" class = "btn btn-dark"> <i class='fas fa-trash-alt' style='font-size:36px;color:white'></i></a>
-            <a href = "http://localhost:3000/black_lists" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
-            <a href = "http://localhost:3000/profiles" class = "btn btn-dark"> <i class='fas fa-font' style='font-size:36px;color:white'> </i></a>
-            <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
-          <% end -%>
-        </ul>
-        <%=form_tag search_path, :method => "get" do %>
-        <%= text_field_tag :search, params[:search]%>
-        <%= submit_tag "search" %>
-        <% end %>
-
-
-    
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <div>
-            <input type="checkbox" name="nick_name" value="true"><span style = 'color:white'>Nickname</span> 
-            <input type="checkbox" name="location" value="true"><span style = 'color:white'>Location</span> 
-            <button class = "btn btn dark"><i class='fas fa-search' style='font-size:36px;color:white'></i></button>
-          </div>
-        </form>
-
-        <ul class = "nav navbar-expand-md navbar-dark bg-dark ">
-          <% if current_user %>
-          <a href = "http://localhost:3000/users/edit" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
-          <%end%>
-        </ul>
-
-        <%if current_user%>
-          <%= link_to destroy_user_session_path ,method: :delete do%>
-          <button class="btn btn-dark" style='font-size:36px;color:white'> Log Out </button>
-          <% end -%>
-        <% end -%>
-
-        <%if current_user == nil%>
-          <a href = "http://localhost:3000/users/sign_in" class = "btn btn-dark" style='font-size:36px;color:white'> Sign In</a> 
-        <% end -%>
-
-      </div>  
-    
-    </nav>
+      <%= link_to root_path do%>
+        <button class="btn btn-dark" style='font-size:36px;color:white'> SweetUms </button>
+      <% end -%>
   
-    <nav class="nav navbar-expand-md navbar-dark bg-dark fixed-bottom" id= "navbot">
-      <span class = "btn btn-dark " style='font-size:10px'>SweetUms</span>
-      <span class = "btn btn-dark " style='font-size:10px' >Terms and Conditions</span>
-      <span class = "btn btn-dark " style='font-size:10px' >Use Policy</span>
-    </nav>
+      <ul class = "navbar-nav mr-auto"></ul>
 
-    <%= yield %>
-    <script type="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <script type="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <ul class = "navbar-nav">   
+  
+        <%if current_user && current_user.role == 1%>
+          <a href = "http://localhost:3000/posts/new" class ="btn btn-dark"><i class='fas fa-feather-alt' style='font-size:36px;color:white'></i></a>
 
-  </body>
+        <%elsif current_user && current_user.role == 2%>
+  <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" style = "margin-top: 69px">
+          <a href = "http://localhost:3000/dumpsters" class = "btn btn-dark"> <i class='fas fa-trash-alt' style='font-size:36px;color:white'></i></a>
+          <a href = "http://localhost:3000/black_lists" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
+          <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
+       
+        <%elsif current_user && current_user.role == 3%> 
+          <a href = "http://localhost:3000/dumpsters" class = "btn btn-dark"> <i class='fas fa-trash-alt' style='font-size:36px;color:white'></i></a>
+          <a href = "http://localhost:3000/black_lists" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
+          <a href = "http://localhost:3000/profiles" class = "btn btn-dark"> <i class='fas fa-font' style='font-size:36px;color:white'> </i></a>
+          <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
+        <% end -%>
+      </ul>
+      <%=form_tag search_path, :method => "get" do %>
+      <%= text_field_tag :search, params[:search]%>
+      <%= submit_tag "search" %>
+      <% end %>
+
+
+  
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <div>
+          <input type="checkbox" name="nick_name" value="true"><span style = 'color:white'>Nickname</span> 
+          <input type="checkbox" name="location" value="true"><span style = 'color:white'>Location</span> 
+          <button class = "btn btn dark"><i class='fas fa-search' style='font-size:36px;color:white'></i></button>
+        </div>
+      </form>
+
+      <ul class = "nav navbar-expand-md navbar-dark bg-dark ">
+        <% if current_user %>
+        <a href = "http://localhost:3000/users/edit" class = "btn btn-dark"> <i class='fas fa-cogs' style='font-size:36px;color:white'> </i></a>
+        <%end%>
+      </ul>
+
+      <%if current_user%>
+        <%= link_to destroy_user_session_path ,method: :delete do%>
+        <button class="btn btn-dark" style='font-size:36px;color:white'> Log Out </button>
+        <% end -%>
+      <% end -%>
+
+      <%if current_user == nil%>
+        <a href = "http://localhost:3000/users/sign_in" class = "btn btn-dark" style='font-size:36px;color:white'> Sign In</a> 
+      <% end -%>
+
+    </div>  
+  
+  </nav>
+
+  <nav class="nav navbar-expand-md navbar-dark bg-dark fixed-bottom" id= "navbot">
+    <span class = "btn btn-dark " style='font-size:10px'>SweetUms</span>
+    <span class = "btn btn-dark " style='font-size:10px' >Terms and Conditions</span>
+    <span class = "btn btn-dark " style='font-size:10px' >Use Policy</span>
+  </nav>
+</header>
+<div class="container">
+  <%= yield %>
+</div>
+  <script type="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+  <script type="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
 </html>

@@ -1,11 +1,18 @@
  <head>
+<style>
+.input-group-prepend{
+  width: 100px
+}
+.input-group-text{
+  width: 100px 
+}
+</style>
+ </head>
 
 <body>
-  
-
-<div class="row" style="margin-top: 50px">
-  
-  <div class="col-md-5 offset-1">
+  <div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
     <h1>Post Edit</h1>
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
@@ -29,11 +36,11 @@
   </div>
 
   <div class="input-group mb-3">
-    <div class="input-gruop-prepend"> 
+    <div class="input-gruop-prepend" style="width: 100px"> 
     <span class = "input-group-text "id="basic-addon1"> Description</span>
 
     </div>
-    <%= form.text_field :description, class: 'form-control', placeholder: "Description" %>
+    <%= form.text_field :description, class: 'form-control', placeholder: "Description", maxlenght: "150" %>
   </div>
 
   <div class="input-group mb-3">
@@ -41,7 +48,7 @@
     <span class = "input-group-text "id="basic-addon1"> Body</span>
 
     </div>
-    <%= form.text_area :body, class: 'form-control', placeholder: "Please, be nice!" %>
+    <%= form.text_area :body, class: 'form-control', placeholder: "Please, be nice!" , rows:"8"%>
   </div>
 
   <div class="input-group mb-3">
@@ -61,10 +68,16 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Update", class: 'btn btn-dark active'%>
+    <%= form.submit "Update", class: 'btn btn-dark active', style: "float: right;"%>
   </div>
 <% end %>
 </div>
   </div>
   <div class="col-md-2"></div>
+  </div>
 </body>
+
+
+
+
+

@@ -8,12 +8,9 @@
 <title>Navigation Bar</title>
 <body >  
 
-<div class="row" style="margin-top: 100px">   
-</div>
-
 <div class = "row">
-  
-    <dir class="col-md-7 offset-1">
+    <div class="col-md-2" ></div>
+    <div class="col-md-8">
     <h1>Hello you!</h1>
       <div class="row" style="margin-left: 0px">
         <div class="col-md-8"></div>
@@ -29,7 +26,7 @@
       
       <% @posts.each do |p| %>
         <div class="container" style="background-color:#f8f9fa">          
-        <div class="col-md-14">
+        <div class="col-md-14"></div>
 
         <div class="row">
         <h2 class = " btn btn-outline-light active" style = "font-size:30px" ><%= link_to p.title, p%></h2>            
@@ -106,10 +103,11 @@
         </div>
         <hr />
           
+      <% end %>
         </div>
         
-      <% end %>
     </div>
+    <div class="col-md-2" ></div>
 </div>
 
 
