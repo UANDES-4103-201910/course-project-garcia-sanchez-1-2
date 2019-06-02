@@ -28,13 +28,14 @@
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password:" %>
   </div>
 
-  <div class="input-group mb-3">  
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Password:" %>
-  </div>
+
 
   <div>
-    <input type="checkbox" name="admin" value = "true">Admin</input> </br>
-    <input type="checkbox" name="admin" value = "true">User</input>
+    
+    <select name="role" id="role">
+      <option value="1" selected="selected">User</option>
+      <option value="2">Admin</option>
+    </select>   
   </div>
   
   <div class="actions">

@@ -1,7 +1,6 @@
 class NewUserController < ApplicationController
 	def create
-		pass = params[:new_user][:password]
-		password_cofirmation = params[:new_user][:password_cofirmation]
+			
 		##if pass == password_cofirmation
 
 			@user = User.new(user_params)
@@ -20,6 +19,6 @@ class NewUserController < ApplicationController
 	private
 		def user_params
 	      
-	      params.require(:new_user).permit(:name, :last_name, :phone, :username, :password, :email)
+	      params.require(:new_user).permit(:name, :last_name, :phone, :username, :password, :email, :role)
 	    end
 end
