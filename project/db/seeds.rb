@@ -10,9 +10,11 @@ User.create(email: "tomas@miuandes.cl", username: "tomgar12", password: "Hola123
 User.create(email: "mauro@miuandes.cl", username: "resnak12", password: "Password123",name: "mauro", last_name: "sanchez", role: 3), 
 User.create(email: "hugo@miuandes.cl", username: "hugo12", password: "Qwer1234",name: "hugo", last_name: "dela", role: 1),
 User.create(email: "nico@miuandes.cl", username: "gor12", password: "Qwer1234",name: "nico", last_name: "gor", role: 2),
-User.create(email: "martin@miuandes.cl", username: "costa12", password: "Qwer1234",name: "martin", last_name: "concha", role: 1)]
+User.create(email: "martin@miuandes.cl", username: "costa12", password: "Qwer1234",name: "martin", last_name: "concha", role: 1),
+User.create(email: "prueba@miuandes.cl", username: "prueba1", password: "password123",name: "prueba", last_name: "de Fiesta", role: 1)]
 
 Post.create(title: "Post1", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim")
 Post.create(title: "Post2", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim")
 Post.create(title: "Post3", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim")
 
+  

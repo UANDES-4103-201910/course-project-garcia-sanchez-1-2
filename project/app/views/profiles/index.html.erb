@@ -17,13 +17,20 @@
 
   <tbody>
     <% @users = User.all %>
-    <% @users.each do |u| %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= u.username %></td>
         
-        <td><%= link_to 'Show', u %></td>
-        <td><%= link_to 'Edit', edit_user_path(u) %></td>
-        <td><%= link_to 'Destroy', u, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.username%></td>
+        <td><%= user.name%></td>
+        <td><%= user.last_name%></td>
+        <% if user.role == 1%>
+          <td><%= 'User'%></td>
+        <% elsif user.role == 2%>
+          <td><%= 'Admin'%></td>
+        <% end -%>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -5,7 +5,7 @@ class NewestController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		if @post.save
-    		flash[:success] = "Published was Complete!"
+    		flash[:success] = "Published successfully!"
     		redirect_to "http://localhost:3000/posts"
     	else
     		flash[:error] = "Something went wrong, please try again."
@@ -16,7 +16,7 @@ class NewestController < ApplicationController
 	def update
 		
 		if @post.update(post_params)
-    		flash[:success] = "Published was Complete!"
+    		flash[:success] = "Puost updated successfully!"
     		redirect_to "http://localhost:3000/posts"
     	else
     		flash[:error] = "Something went wrong, please try again."

@@ -1,0 +1,38 @@
+<h1>New User</h1>
+
+<%= form_for(:new_user, url: my_new_user_path) do |f| %>
+  
+
+
+  <div class="input-group mb-3">
+    <%= f.text_field :username, class: "form-control", placeholder: "Userame:" %>
+  </div>
+
+  <div class="input-group mb-3">
+    <%= f.email_field :email, class: "form-control", placeholder: "Email:" %>
+  </div>
+
+  <div class="input-group mb-3">
+    <%= f.text_field :name, autocomplete: "name", class: "form-control", placeholder: "Name:" %>
+  </div>
+
+  <div class="input-group mb-3">
+    <%= f.text_field :last_name, autocomplete: "Last Name", class: "form-control", placeholder: "Last Name:" %>
+  </div>
+  
+  <div class="input-group mb-3">
+    <%= f.text_field :phone, class: "form-control", placeholder: "Phone:" %>
+  </div>
+
+  <div class="input-group mb-3">
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password:" %>
+  </div>
+
+  <div class="input-group mb-3">  
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Password:" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

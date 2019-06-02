@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  #get 'users/create'
+  #get 'users/update'
+  #get 'users/destroy'
+  #get 'users/index'
+  #get 'users/show'
+  #get 'users/edit'
+  
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   #devise_for :users, controllers: { sessions: 'users/sessions' }
   #devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }
@@ -33,6 +40,8 @@ Rails.application.routes.draw do
   post '/sign_up' => 'registration#create', as: :sign_up
   post '/new_post' => 'newest#create', as: :my_new_post
   post '/update_post' => 'newest#update', as: :my_update_post
+
+  post '/new_user' => 'new_user#create', as: :my_new_user
 
   get '/my_wall' => 'posts#wall', as: :my_wall
 

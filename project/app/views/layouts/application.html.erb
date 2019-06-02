@@ -45,7 +45,7 @@
           <a href = "http://localhost:3000/posts/new" class ="btn btn-dark"><i class='fas fa-feather-alt' style='font-size:36px;color:white'></i></a>
 
         <%elsif current_user && current_user.role == 2%>
-  <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" >
+ 
           <a href = "http://localhost:3000/dumpsters" class = "btn btn-dark"> <i class='fas fa-trash-alt' style='font-size:36px;color:white'></i></a>
           <a href = "http://localhost:3000/black_lists" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
           <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
@@ -53,7 +53,6 @@
         <%elsif current_user && current_user.role == 3%> 
           <a href = "http://localhost:3000/dumpsters" class = "btn btn-dark"> <i class='fas fa-trash-alt' style='font-size:36px;color:white'></i></a>
           <a href = "http://localhost:3000/black_lists" class = "btn btn-dark"> <i class='fas fa-skull' style='font-size:36px;color:white'> </i></a>
-          <a href = "http://localhost:3000/profiles" class = "btn btn-dark"> <i class='fas fa-font' style='font-size:36px;color:white'> </i></a>
           <a href = "http://localhost:3000/users" class = "btn btn-dark"> <i class='fas fa-venus-mars' style='font-size:36px;color:white'> </i></a>
         <% end -%>
       </ul>
