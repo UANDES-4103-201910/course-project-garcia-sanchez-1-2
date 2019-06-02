@@ -31,16 +31,9 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
-  def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
+  def updaterespond_to do |format|
+      @comment.update(comment_params)
+
   end
 
   # DELETE /comments/1
@@ -48,7 +41,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to @post, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -61,6 +54,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :post_id)
+      params.require(:comment).permit(:content, :post_id).merge(user_id: current_user.id)
     end
 end

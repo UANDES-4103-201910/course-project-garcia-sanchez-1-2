@@ -68,12 +68,18 @@
       <div class="col-md-4">
        
         <h2>Comments</h2>
-        <% @post.comment.each do |comment| %>   
+        <% @post.comment.each do |comment| %>
+        <% u = User.find(comment.user_id)%>   
           <p>
-            <strong>Comment:</strong>
+            <strong><%= u.name %>:</strong>
             <%= comment.content %>
+            <%if current_user.id == comment.user_id %>
+              <%= link_to 'Edit', edit_post_comment_path(comment) %>
+            <% end %>
           </p>
+
         <% end %>
+
         <%if current_user && current_user.role == 1%>
         <%= form_with(model: [ @post, @post.comment.build ], local: true) do |form| %>
           <p>
