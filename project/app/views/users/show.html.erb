@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h1>  <%=@user.username%> </h1>
+
+<p><%=@user.name%></p> 
+<p><%=@user.last_name%></p> 
+<p><%=@user.email%></p>
+<%if @user.role == 1%> 
+	<p><%='User'%></p>
+<%elsif @user.role == 2%>
+	<p><%='Admin'%></p>
+<%else%>
+	<p><%='System Admin'%></p>
+<% end -%>	
+<%if @user.last_sign_in_at == nil%>
+	<p>Has never logged in. </p>
+<%else%> 
+	<p>Last sign in at: <%=@user.last_sign_in_at%></p> 
+<% end -%>
+

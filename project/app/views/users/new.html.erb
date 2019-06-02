@@ -32,7 +32,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Password:" %>
   </div>
 
+  <div>
+    <input type="checkbox" name="admin" value = "true">Admin</input> </br>
+    <input type="checkbox" name="admin" value = "true">User</input>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
