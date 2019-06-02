@@ -28,14 +28,8 @@
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password:" %>
   </div>
 
-
-
   <div>
-    
-    <select name="role" id="role">
-      <option value="1" selected="selected">User</option>
-      <option value="2">Admin</option>
-    </select>   
+     <%= f.select(:role, options_for_select([["User",1],["Admin", 2]]))%>  
   </div>
   
   <div class="actions">
