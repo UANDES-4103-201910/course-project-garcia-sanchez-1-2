@@ -31,8 +31,10 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
-  def updaterespond_to do |format|
-      @comment.update(comment_params)
+  def update
+    @post = Post.find(params[:post_id])
+    @comment.update(comment_params)
+    redirect_to @post
 
   end
 
