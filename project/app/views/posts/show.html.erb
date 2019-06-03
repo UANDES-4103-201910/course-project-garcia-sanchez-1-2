@@ -16,7 +16,7 @@
       <div class="col-md-3">
         
         <%= form_for(:follow, url: create_follow_path) do |f|%>
-          <%:post_id, @post.id %> 
+          
           <%=f.submit class: "btn btn-dark"%>
         <% end -%>
 
@@ -28,8 +28,10 @@
 
 
   <div>
-    <strong>Author:</strong>
-    <%= User.find(@post.user_id).username %>
+    <%user = User.find(@post.user_id) %>
+    <%=link_to "http://localhost:3000/users/#{user.id}" do%>
+    <div class = "btn btn-outline-light active"><strong>Author:</strong> <%= user.username %></div>
+    <% end %>
   </div>
   
   </div>
@@ -51,8 +53,8 @@
       </div>
       <div>
 
-        <strong>Lotation:</strong>
-        <%= @post.city %>
+        <strong>Location:</strong>
+        <%= @post.city %>,
         <%= @post.country %>
         <hr />
       </div>
@@ -92,9 +94,12 @@
        
         <h2>Comments</h2>
         <% @post.comment.each do |comment| %>
-        <% u = User.find(comment.user_id)%>   
+
           <p>
-            <strong><%= u.name %>:</strong>
+          <%user = User.find(comment.user_id) %>
+          <%=link_to "http://localhost:3000/users/#{user.id}" do%>
+          <strong><%= user.username %>:</strong> 
+          <% end %>  
             <%= comment.content %>
             <%if current_user.id == comment.user_id %>
               <%= link_to 'Edit', edit_post_comment_path(comment) %>

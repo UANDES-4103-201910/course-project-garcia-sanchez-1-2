@@ -24,9 +24,17 @@ class FollowsController < ApplicationController
   # POST /follows
   # POST /follows.json
   def create
-    @post = Post.find(params[:post_id])
-    @follow = @post.follow.create(follow_params)
-    redirect_to post_path(@post)
+    @follow = Follow.new(follow_params)
+
+    respond_to do |format|
+      if @follow.save
+        format.html { redirect_to @follow, notice: 'Follow was successfully created.' }
+        format.json { render :show, status: :created, location: @follow }
+      else
+        format.html { render :new }
+        format.json { render json: @follow.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /follows/1
@@ -61,6 +69,6 @@ class FollowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def follow_params
-      params.require(:follow).permit(:post_id).merge(user_id: current_user.id, post_id: @post.id)
+      params.require(:follow).merge(user_id: current_user.id)
     end
 end

@@ -67,8 +67,11 @@
       </div>
 
       <div class="row">
-        <div class = "btn btn-outline-light active"><strong>Author:</strong> <%= User.find(p.user_id).username %></div>
-      </div>
+          <%user = User.find(p.user_id) %>
+          <%=link_to "http://localhost:3000/users/#{user.id}" do%>
+          <div class = "btn btn-outline-light active"><strong>Author:</strong> <%= user.username %></div>
+          <% end %>
+        </div>
       
       <!-- wea 1-->
       <div class="row">   
