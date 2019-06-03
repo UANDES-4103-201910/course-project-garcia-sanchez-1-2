@@ -32,6 +32,15 @@
 	        <%= f.text_field :city, class: 'form-control', placeholder: "City" %>
 	      </div>
 
+	      <div class="input-group">
+	      	<p>Add images:  </p>
+	      	<%=f.file_field :images, multiple: true%>
+	      </div>
+
+	      <div class="input-group">
+	      	<p>Add files:  </p>
+	      	<%=f.file_field :files%>
+	      </div>
 	      
 
 	      

@@ -25,7 +25,7 @@ class NewestController < ApplicationController
 	end
 	def post_params
       #params.require(:post).permit(:title, :description, :body, :country, :city, :geofence, :user_id)
-      params.require(:newest).permit(:title, :description, :body, :country, :city).merge(user_id: current_user.id)
+      params.require(:newest).permit(:title, :description, :body, :country, :city, :files, images: []).merge(user_id: current_user.id)
     end
 end
 	

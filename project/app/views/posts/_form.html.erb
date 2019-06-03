@@ -66,6 +66,15 @@
     </div>
     <%= form.text_field :city, class: 'form-control', placeholder: "City" %>
   </div>
+        <div class="input-group">
+          <p>Add images:</p>
+          
+        </div>
+          <%=form.file_field :images, multiple: true%>
+        <div class="input-group">
+          <p>Add files:</p>
+        </div>
+          <%=form.file_field :files%>
 
   <div class="actions">
     <%= form.submit "Update", class: 'btn btn-dark active', style: "float: right;"%>

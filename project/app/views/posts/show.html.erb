@@ -36,8 +36,13 @@
   
   </div>
   <div class="col-md-4">
-    <h2>Were will be images and links :D</h2></div>
+    <%(0...@post.images.count).each do |image|%>
+      <%= image_tag(@post.thumbnail(image))%>    
+    <% end -%>
+    <%= link_to "View files", @post.files, download: ''%>
+  </div>
   
+
 </div>
 <div class="row">
     <div class="col-md-2"></div>
