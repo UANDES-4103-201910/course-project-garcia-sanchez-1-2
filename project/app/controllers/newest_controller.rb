@@ -9,7 +9,7 @@ class NewestController < ApplicationController
     		redirect_to "http://localhost:3000/posts"
     	else
     		flash[:error] = "Something went wrong, please try again."
-    		redirect_to  "http://localhost:3000/posts"
+    		redirect_to  "http://localhost:3000/posts/new"
     	end
 		
 	end

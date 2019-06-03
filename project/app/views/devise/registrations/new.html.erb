@@ -28,6 +28,10 @@
     </div>
 
     <div class="input-group mb-3">
+      <%= f.email_field :username, autocomplete: "username", class: "form-control", placeholder: "Username:" %>
+    </div>
+
+    <div class="input-group mb-3">
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password (6 characters minimum):" %>
     </div>
 
