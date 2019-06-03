@@ -14,14 +14,7 @@
         <h1><%= @post.title %></h1>
       </div>
       <div class="col-md-3">
-        
-        <%= form_for(:follow, url: create_follow_path) do |f|%>
-          
-          <%=f.submit class: "btn btn-dark"%>
-        <% end -%>
-
-          
-
+        <button class="btn btn-dark">Follow</button>
       </div>  
 
     </div>
@@ -39,7 +32,9 @@
     <%(0...@post.images.count).each do |image|%>
       <%= image_tag(@post.thumbnail(image))%>    
     <% end -%>
+    <%if @post.files.attachment != nil%>
     <%= link_to "View files", @post.files, download: ''%>
+    <% end -%>
   </div>
   
 
@@ -106,7 +101,8 @@
           <strong><%= user.username %>:</strong> 
           <% end %>  
             <%= comment.content %>
-            <%if current_user.id == comment.user_id %>
+
+            <%if current_user && current_user.id == comment.user_id %>
               <%= link_to 'Edit', edit_post_comment_path(comment) %>
             <% end %>
           </p>

@@ -46,6 +46,7 @@
     <hr />
     <%@posts = Post.all%>
     
+    <%if current_user%>
     <% @posts.where(user_id: current_user.id).each do |p| %>
       <div class="container" style="background-color:#f8f9fa">
       <div class="col-md-14"></div>
@@ -121,6 +122,7 @@
     </div>
     <hr />    
     <% end %>
+    <% end -%>
     </div>
   <div class="col-md-2" ></div>
 </div>

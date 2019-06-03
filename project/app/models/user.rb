@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # , :lockable, :timeoutable,  and :omniauthable
   #before_action :authenticate_user!
   acts_as_voter
+  validates :username, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable,
   		 :omniauthable, omniauth_providers: [:google_oauth2]
