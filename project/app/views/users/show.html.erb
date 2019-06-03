@@ -1,20 +1,124 @@
-<p id="notice"><%= notice %></p>
 
-<h1>  <%=@user.username%> </h1>
+<!DOCTYPE html>
+<html>
+<title>Navigation Bar</title>
+<head>
+</head>
+<body >  
+  
 
-<p><%=@user.name%></p> 
-<p><%=@user.last_name%></p> 
-<p><%=@user.email%></p>
-<%if @user.role == 1%> 
-	<p><%='User'%></p>
-<%elsif @user.role == 2%>
-	<p><%='Admin'%></p>
-<%else%>
-	<p><%='System Admin'%></p>
-<% end -%>	
-<%if @user.last_sign_in_at == nil%>
-	<p>Has never logged in. </p>
-<%else%> 
-	<p>Last sign in at: <%=@user.last_sign_in_at%></p> 
-<% end -%>
+<div class = "row">
+      
+    <div class="col-md-2" ></div>
+    <div class="col-md-8">
+      <div class="row">
+      <div class="col-md-12">
+        <h1> <%= @user.name%> <%= @user.last_name%> </h1>
+        <div class="card" style="background-color: white">
+          <div class="row" >
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+        <h4> <%= @user.username%> </h4>
+        <h4> <%= @user.phone%></h4>
+        <h4> <%= @user.city%></h4>
+        <h4> <%= @user.country%></h4>
+        
+        <h4> <%= @user.bio%> </h4> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
+      </div>
 
+    <br>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4" >
+        <select class="browser-default custom-select">
+          <option value="1">Newest</option>
+          <option value="2">Trendding tropic</option>
+          <option value="3">Oldest</option>
+        </select>
+      </div>
+    </div>
+    <hr />
+    <%@posts = Post.all%>
+    <% @posts.where(user_id: current_user.id).each do |p| %>
+      <div class="container" style="background-color:#f8f9fa">
+      <div class="col-md-14"></div>
+      
+      <div class="row">
+      <div class="col-md-9">
+        <h2 class = " btn btn-outline-light active" style = "font-size:30px" ><%= link_to p.title, p%></h2>
+        <button type="button" class="btn btn-info" aria-label="Left Align" style = "font-size:10px">Solved</button>
+      </div>
+      <div class="col-md-3">
+        <div class = " btn btn-outline-light active"><%= link_to 'Edit ', edit_post_path(p) %></div>
+        
+        <div class = " btn btn-outline-light active"><%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </div>
+      </div>
+      
+      <div class="row">
+      <div class = "btn btn-outline-light active"><%= p.description %></div>
+      </div>
+
+      <div class="row">
+        <div class = "btn btn-outline-light active"><strong>Author:</strong> <%= User.find(p.user_id).username %></div>
+      </div>
+      
+      <!-- wea 1-->
+      <div class="row">   
+      <div class="col-md-9">   
+      <div class = "row" >
+        <div class="btn btn-outline-light active ">
+          <%= p.created_at %>   
+        </div>  
+      </div>
+      </div>
+
+      <div class="col-md-3" style="float: right;">
+        <div class="caption" style="text-align:center;">
+          <%if current_user && current_user.role == 1%>
+          <%= link_to like_post_path(p), class: "like", method: :put do %>
+            <button type="button" class="btn btn-info" aria-label="Left Align">
+              <span class="fa fa-thumbs-up" aria-hidden="true"></span>
+              <span class="badge"><%= p.get_upvotes.size %></span>
+            </button>
+          <% end %>
+          <%else%>
+            <button type="button" class="btn btn-info" aria-label="Left Align">
+              <span class="fa fa-thumbs-up" aria-hidden="true"></span>
+              <span class="badge"><%= p.get_upvotes.size %></span>
+            </button>
+          <% end -%>
+
+          <%if current_user && current_user.role == 1%>
+          <%= link_to unlike_post_path(p), class: "like", method: :put do %>
+            <button type="button" class="btn btn-info" aria-label="Left Align">
+              <span class="fa fa-thumbs-down" aria-hidden="true"></span>
+              <span class="badge"><%= p.get_downvotes.size %></span>
+            </button>
+          <% end %>
+          <%else%>
+            <button type="button" class="btn btn-info" aria-label="Left Align">
+              <span class="fa fa-thumbs-down" aria-hidden="true"></span>
+              <span class="badge"><%= p.get_downvotes.size %></span>
+            </button>
+          <% end -%>
+        </div>
+      </div>
+          
+      </div> 
+      <br >
+       <div class="row"></div>
+    </div>
+    <hr />    
+    <% end %>
+    </div>
+  <div class="col-md-2" ></div>
+</div>
+</body>
+</html>

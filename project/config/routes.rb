@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :follows
   #get 'users/create'
   #get 'users/update'
   #get 'users/destroy'
@@ -19,11 +20,12 @@ Rails.application.routes.draw do
   resources :black_lists
   resources :inappropriates
   resources :dumpsters
-  
+
   resources :post_images
   resources :posts do
     resources :comments
     resources :comment_images
+    resources :follows
     member do
       put "like" => "posts#upvote"
       put "unlike" => "posts#downvote"
@@ -36,7 +38,7 @@ Rails.application.routes.draw do
 
   post '/login' => 'sessions#create', as: :log_in
   
-
+  post '/follow' => 'follows#create', as: :create_follow
   post '/sign_up' => 'registration#create', as: :sign_up
   post '/new_post' => 'newest#create', as: :my_new_post
   post '/update_post' => 'newest#update', as: :my_update_post

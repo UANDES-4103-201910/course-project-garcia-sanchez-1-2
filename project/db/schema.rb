@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_023417) do
+ActiveRecord::Schema.define(version: 2019_06_03_002321) do
 
   create_table "black_lists", force: :cascade do |t|
     t.integer "user_id"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2019_05_28_023417) do
     t.index ["user_id"], name: "index_dumpsters_on_user_id"
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_follows_on_post_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
   create_table "inappropriates", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
@@ -73,6 +82,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_023417) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

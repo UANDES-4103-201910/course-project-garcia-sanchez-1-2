@@ -44,7 +44,8 @@
         </div>
 
         <div class="row">
-          <div class = "btn btn-outline-light active"> author <%= p.id %></div>
+
+          <div class = "btn btn-outline-light active"><strong>Author:</strong> <%= User.find(p.user_id).username %></div>
         </div>
         <!-- wea 1-->
         <div class="row"> 

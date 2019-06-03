@@ -45,7 +45,7 @@
     </div>
     <hr />
 
-    <% @posts.each do |p| %>
+    <% @posts.where(user_id: current_user.id).each do |p| %>
       <div class="container" style="background-color:#f8f9fa">
       <div class="col-md-14"></div>
       
@@ -66,7 +66,7 @@
       </div>
 
       <div class="row">
-        <div class = "btn btn-outline-light active"> author <%= p.id %></div>
+        <div class = "btn btn-outline-light active"><strong>Author:</strong> <%= User.find(p.user_id).username %></div>
       </div>
       
       <!-- wea 1-->

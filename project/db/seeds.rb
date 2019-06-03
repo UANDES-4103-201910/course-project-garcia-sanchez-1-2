@@ -13,8 +13,8 @@ User.create(email: "nico@miuandes.cl", username: "gor12", password: "Qwer1234",n
 User.create(email: "martin@miuandes.cl", username: "costa12", password: "Qwer1234",name: "martin", last_name: "concha", role: 1),
 User.create(email: "prueba@miuandes.cl", username: "prueba1", password: "password123",name: "prueba", last_name: "de Fiesta", role: 1)]
 
-Post.create(title: "Post1", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim")
-Post.create(title: "Post2", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim")
-Post.create(title: "Post3", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim")
+Post.create(title: "Post1", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim", user_id: 5)
+Post.create(title: "Post2", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim", user_id: 5)
+Post.create(title: "Post3", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim", user_id: 5)
 
   

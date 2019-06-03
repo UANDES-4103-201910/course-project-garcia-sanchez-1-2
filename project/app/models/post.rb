@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  #belongs_to :user
+  belongs_to :user
   acts_as_votable
   has_one :dumpster
   has_one :inappropriate

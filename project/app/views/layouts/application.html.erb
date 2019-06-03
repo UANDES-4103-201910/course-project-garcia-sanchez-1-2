@@ -29,8 +29,11 @@
     </button>
     <div class = "collapse navbar-collapse" id = "collapse_target">
     
-      <%if current_user && current_user.role == 1%>  
-        <a href = "http://localhost:3000/my_wall" class = "logo" style='font-size:36px;color:white'> <i class='fas fa-user'></i>  </a>
+      <%if current_user && current_user.role == 1%>
+        <%=link_to "http://localhost:3000/users/#{current_user.id}" do%>
+        <button class = "btn btn-dark" style='font-size:36px;color:white'><i class='fas fa-user'></i></button> 
+        <% end -%>
+
       <% end -%>
 
       <%= link_to root_path do%>
