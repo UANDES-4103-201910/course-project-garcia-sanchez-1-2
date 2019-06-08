@@ -28,7 +28,7 @@
 
         <div class="row">
           <div class="col-md-10">
-          <h2 class = " btn btn-outline-light active" style = "font-size:30px" ><%= link_to p.title, p%></h2> 
+            <%= link_to p.title, p, class: 'display-3 btn-outline-light', title: 'See more'%>
           <button type="button" class="btn btn-info" aria-label="Left Align" style = "font-size:10px">Solved</button>      
           </div>
           <div class="col-md-2" >
@@ -45,9 +45,7 @@
 
         <div class="row">
           <%user = User.find(p.user_id) %>
-          <%=link_to "http://localhost:3000/users/#{user.id}" do%>
-          <div class = "btn btn-outline-light active"><strong>Author:</strong> <%= user.username %></div>
-          <% end %>
+          <%= link_to user.username,  user_path(id: user.id), class: 'btn btn-outline-light active', title: 'Go to user profile' %>
         </div>
         <!-- wea 1-->
         <div class="row"> 
