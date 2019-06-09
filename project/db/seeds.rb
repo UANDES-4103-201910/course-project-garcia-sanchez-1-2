@@ -11,7 +11,7 @@ User.create(email: "mauro@miuandes.cl", username: "resnak12", password: "Passwor
 User.create(email: "nico@miuandes.cl", username: "gor12", password: "qwer234",name: "Nico", last_name: "Gor", role: 2),
 User.create(email: "martin@miuandes.cl", username: "costa12", password: "qwer1234",name: "Martin", last_name: "Concha", role: 1),
 User.create(email: "hugo@miuandes.cl", username: "hugo12", password: "qwer1234",name: "Hugo", last_name: "De la Fuente", role: 1),
-User.create(email: "prueba@miuandes.cl", username: "prueba1", password: "password123",name: "Prueba", last_name: "De Fiesta", role: 1)
+User.create(email: "prueba@miuandes.cl", username: "prueba1", password: "password123",name: "Prueba", last_name: "De Fiesta", role: 1),
 User.create(email: "coni@finis.cl", username: "Coni99", password: "password123",name: "Coni", last_name: "Contreras", role: 1)]
 
 #Post.create(title: "Post1", description: "Desc1", body: "wneeslssl", city: "santiago", country: "pim pim", user_id: 5)
