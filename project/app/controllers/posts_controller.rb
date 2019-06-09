@@ -17,8 +17,9 @@ class PostsController < ApplicationController
     @user= User.find(current_user.id)
     @posts = Post.all
     @didit = Post.where(["user_id LIKE ?", current_user.id]).count()
-    #@dislikes = 
-    #@comments = 
+    @likeit = Vote.where(["voter_id LIKE ?", current_user.id] && ["vote_flag LIKE ?", true]).count()
+    @disit = Vote.where(["voter_id LIKE ?", current_user.id] && ["vote_flag LIKE ?", false]).count()
+    @commentdid = Comment.where(["user_id LIKE ?", current_user.id]).count() 
   end
 
   # GET /posts/1
