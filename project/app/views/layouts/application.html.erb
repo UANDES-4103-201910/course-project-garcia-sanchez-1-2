@@ -30,6 +30,7 @@
     <div class = "collapse navbar-collapse" id = "collapse_target">
     
       <%if current_user && current_user.role == 1%>
+
         <%=link_to "http://localhost:3000/my_wall" do%>
         <button class = "btn btn-dark" style='font-size:36px;color:white'><i class='fas fa-user'></i></button> 
         <% end -%>
@@ -105,6 +106,12 @@
     </div>
     <% end %>
     <br>
+    <% if current_user && current_user.username.nil? %>
+    <div>
+      You dont have complete yours credentials, pls click below
+      <% link_to edit_user_path %>
+    </div>
+    <% end %>
   <%= yield %>
 </div>
   <script type="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 

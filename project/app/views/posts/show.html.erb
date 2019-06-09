@@ -47,23 +47,12 @@
       </div>  
 
     </div>
-
-
-  <div>
-    <%user = User.find(@post.user_id) %>
-    <%=link_to "http://localhost:3000/users/#{user.id}" do%>
-    <div class = "btn btn-outline-light active"><strong>Author:</strong> <%= user.username %></div>
-    <% end %>
-  </div>
+    <div class="row">
+      <%user = User.find(@post.user_id) %>
+      <u><%= link_to user.username,  user_path(id: user.id), class: 'btn btn-outline-light active', title: 'Go to user profile' %>
+      </u>
+    </div>  
   
-  </div>
-  <div class="col-md-4">
-    <%(0...@post.images.count).each do |image|%>
-      <%= image_tag(@post.thumbnail(image))%>    
-    <% end -%>
-    <%if @post.files.attachment != nil%>
-    <%= link_to "View files", @post.files, download: ''%>
-    <% end -%>
   </div>
   
 
@@ -87,7 +76,7 @@
         <%= @post.country %>
         <hr />
       </div>
-      <div class="thumbnail thumb-box"></div>
+
 
   
       <div class="row">
@@ -99,7 +88,7 @@
 
             <p>
             <%user = User.find(comment.user_id) %>
-            <%= link_to user.username,  user_path(id: user.id), class: 'btn btn-outline-light active', title: 'Go to user profile' %>:
+            <%= link_to user.username + ":",  user_path(id: user.id), class: 'btn btn-outline-light active', title: 'Go to user profile' %>
               <%= comment.content %>
 
               <%if current_user && current_user.id == comment.user_id %>
@@ -113,20 +102,23 @@
           <%= form_with(model: [ @post, @post.comment.build ], local: true) do |form| %>
             <p>
               <%= form.text_area :content, placeholder:"Tap your reply!"%>
-
-            </p>
-            <p>
-              <div class="row" style="margin-bottom: : 35px">
-                <%= form.submit class: "btn btn-dark" %>
-              </div>
+              <%= form.submit class: "btn btn-dark", style: "float: right;"%>
             </p>
           <% end %>
           <% end -%>
         </div>
-        <div class="col-md-3"></div>
-      </div>
+        
     </div>
 </div>
+      <div class="col-md-3">
+      
+          <%(0...@post.images.count).each do |image|%>
+            <%= image_tag(@post.thumbnail(image), size: "280x280")%>    
+          <% end -%>
+          <%if @post.files.attachment != nil%>
+          <%= link_to "View files", @post.files, download: ''%>
+          <% end -%>
+      </div>
 
 </body>
 

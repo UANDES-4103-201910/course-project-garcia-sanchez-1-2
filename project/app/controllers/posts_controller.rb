@@ -16,6 +16,9 @@ class PostsController < ApplicationController
   def wall
     @user= User.find(current_user.id)
     @posts = Post.all
+    @didit = Post.where(["user_id LIKE ?", current_user.id]).count()
+    #@dislikes = 
+    #@comments = 
   end
 
   # GET /posts/1

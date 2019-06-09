@@ -6,43 +6,49 @@
 <div class="row mb-2">
   <div class="col-md-2"></div>
   <div class="col-8 ">
-    <div class="card">
-      <div class="card-header1">  
-        <h2>  Searched users</h2>
-        </div>
-        <div class="card-body">
+<div class="card">
+    <div class="card-header">  
+      <h2>  Searched users</h2>
+    </div>
+    <div class="card-body">
+      <% @users.each do |user| %>
+          <div class="card float-left " style="width: 100%" >
+          <div class="card-body float-left" style="height:auto; min-height: 100px;">
+            <% if user.name.nil?%>
+              <h4>  
+              <%= link_to user.username,  user_path(id: user.id), class: 'display-4 btn-outline-light active', title: 'Go to user profile' %>
+              </h4>
+              <h4><%= user.name + " " +user.last_name%></h4> 
+              <h4 class="card-title"><%= user.city%>  <%= user.country%> </h4>
+              <h4 class="card-title"><%= user.phone%></h4>
+            <%else%>
+            <h4 class="card-title">No name</h4>
+            <%end%>
 
-        <% @users.each do |user| %>
-
-            <div class="card float-left " style="width: 100%" >
-
-            <div class="card-body float-left" style="height:auto; min-height: 100px;">
-              <% if user.name != nil%>
-                <h4>  
-                <%=link_to "http://localhost:3000/users/#{user.id}" do%>
-                <div class = "card-title"> 
-                  <%= user.username %>
-
-                </div>
-                  <%= user.name + " " +user.last_name%>
-                <% end %>
-                </h4>
-
-               
-               
-              
-               
-               
-               <h4 class="card-title"><%= user.city%>  <%= user.country%> </h4>
-               <h4 class="card-title"><%= user.phone%></h4>
-              <%else%>
-              <h4 class="card-title">No name</h4>
-              <%end%>
-
-            </div>
           </div>
-        <%end%>
+        </div>
+      <%end%>
+    </div>
+  </div>
 
+  <div class="card">
+    <div class="card-header">  
+      <h2>  Searched Posts</h2>
+    </div>
+    <div class="card-body">
+      <% @posts.each do |post| %>
+          <div class="card float-left " style="width: 100%" >
+          <div class="card-body float-left" style="height:auto; min-height: 100px;">
+            <% if post.title != nil%>
+              <h4>  
+              <%= link_to post.title,  post_path(id: post.id), class: 'display-4 btn-outline-light active', title: 'see more' %>
+              </h4>
+                <%= post.description%>
+            <%end%>
+
+          </div>
+        </div>
+      <%end%>
     </div>
   </div>
 </div>
