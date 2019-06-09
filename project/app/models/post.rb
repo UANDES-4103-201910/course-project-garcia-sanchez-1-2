@@ -15,8 +15,6 @@ class Post < ApplicationRecord
 
   private
   	def image_type
-  		
-  	
 	  	images.each do |image|
 	  		if !image.content_type.in?(%('image/jpeg image/png image/jpg' ))
 	  			errors.add(:images, "invalid format.")

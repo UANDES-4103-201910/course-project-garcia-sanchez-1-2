@@ -50,12 +50,27 @@
           <div class="input-group mb-3">
             <%= f.text_field :phone, class: "form-control", placeholder: "Phone:" %>
           </div>
-
+          <div class="input-group mb-3">
+            <%=f.select :city, ["Santiago", "Viña del mar", "Rancagua"], class: "form-control"%>
+          </div>
           <div class="actions">
             <%= f.submit "Update", class: "btn btn-light"%>
           </div>
-        
-
+          
+          <%if current_user.city == "Santiago"%>
+          <strong>Current location:</strong> <br>
+          <iframe width="600" height="450" frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?q=Santiago&key=AIzaSyDrN3ghKEWh72JEWFtQByn3y3-Bj-J32SI" allowfullscreen></iframe>
+          <%elsif current_user.city == "Rancagua"%>
+          <strong>Current location:</strong> <br>
+          <iframe width="600" height="450" frameborder="0" style="border:0" name="Rancagua" 
+          src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ0xPvvWdDY5YR91StZoP8c9k&key=AIzaSyDrN3ghKEWh72JEWFtQByn3y3-Bj-J32SI" allowfullscreen></iframe>
+          <%elsif current_user.city == "Viña del mar"%>
+          <strong>Current location:</strong> <br>
+          <iframe width="600" height="450" frameborder="0" style="border:0" name="Viña del mar" 
+          src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJVRLU6oTeiZYRP0E933beX44&key=AIzaSyDrN3ghKEWh72JEWFtQByn3y3-Bj-J32SI" allowfullscreen></iframe>
+          <% end -%>
+          
       </div>
     </div>
         <% end %>

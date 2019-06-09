@@ -27,8 +27,10 @@
   <div class="input-group mb-3">
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password:" %>
   </div>
-
-  <div>
+  <div class="input-group mb-3">
+      <%=f.select :city, ["Santiago", "Viña del mar", "Rancagua"], class: "form-control"%>
+    </div>
+  <div class="input-group mb-3">
      <%= f.select(:role, options_for_select([["User",1],["Admin", 2]]))%>  
   </div>
   

@@ -47,13 +47,9 @@ class UsersController < ApplicationController
     respond_to do |format|
      
       if @user.update(user_params)
-        if @user.update(black_params) && @user.black_list == true 
-          format.html { redirect_to users_path, notice: 'User added to black list.' }
-          format.json { render :black_list, status: :ok, location: @user }
-        elsif @user.update(black_params) && @user.black_list == false
-          format.html { redirect_to black_list_path, notice: 'User removed from black list.' }
-          format.json { render :show, status: :ok, location: @user }  
-        end
+          format.html { redirect_to users_path, notice: 'User updated successfully' }
+          format.json { render :show, status: :ok, location: @user }
+                
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -80,11 +76,8 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       
-      params.require(:user).permit(:name, :last_name, :phone, :username, :password, :black_list)
+      params.require(:user).permit(:name, :last_name, :phone, :username, :password, :black_list, :terms, :policy, :black_list, :city)
     end
 
-    def black_params
-      
-      params.require(:user).permit(:black_list)
-    end
+    
 end

@@ -23,7 +23,11 @@ class PostsController < ApplicationController
 
   def wall
     @user= User.find(current_user.id)
-    @posts = Post.all
+    if current_user.role == 2 || current_user.role == 3
+      @posts = Post.where(city: current_user.city)
+    elsif
+      @posts = Post.all
+    end
     @didit = Post.where(["user_id LIKE ?", current_user.id]).count()
     @likeit = Vote.where(["voter_id LIKE ?", current_user.id] && ["vote_flag LIKE ?", true]).count()
     @disit = Vote.where(["voter_id LIKE ?", current_user.id] && ["vote_flag LIKE ?", false]).count()
@@ -65,15 +69,8 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        if @post.update(dump_params) && @post.dumpster == true
-          format.html { redirect_to posts_path, notice: 'Post was successfully trashed.' }
+          format.html { redirect_to posts_path, notice: 'Post updated successfully.' }
           format.json { render :show, status: :ok, location: @post }
-        
-        elsif @post.update(dump_params) && @post.dumpster == false
-          format.html { redirect_to dumpster_path, notice: 'Post was successfully restored.' }
-          format.json { render :show, status: :ok, location: @post }
-        end
-
       else
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -112,11 +109,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :body, :country, :city, :files,images: []).merge(user_id: current_user.id)
+      params.require(:post).permit(:title, :description, :body, :country, :city, :dumpster, :files,images: []).merge(user_id: current_user.id)
     end
-  
-    def dump_params
-      params.require(:post).permit(:dumpster)
-    end
-    
+
 end

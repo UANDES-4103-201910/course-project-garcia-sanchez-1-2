@@ -31,12 +31,32 @@
       <%= f.text_field :username, autofocus: true, class: "form-control", placeholder: "Username:" %>
     </div>
 
+
     <div class="input-group mb-3">
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password (6 characters minimum):" %>
     </div>
 
     <div class="input-group mb-3">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Password:" %>
+    </div>
+    <div class="input-group mb-3">
+      <%=f.select :city, ["Santiago", "Viña del mar", "Rancagua"], class: "form-control"%>
+    </div>
+
+    <div class="input-group">
+      <%=f.check_box :policy%>
+      I accpet 
+      <%=link_to "https://www.termsofservicegenerator.net/live.php?token=kUp1CMjZWry51NLBURZw1qHEGs0lH8IC", class: "display btn-outline-light", style: "margin-left:5px;color:blue" do%>
+      Terms of service.
+      <% end -%>
+    </div>
+
+    <div class="input-group">
+      <%=f.check_box :terms%>
+      I accpet 
+      <%=link_to "https://www.termsofusegenerator.net/live.php?token=e7Y2MSVOyTqHK8ICYyIuupSXm1dQMzhT", class: "display btn-outline-light", style: "margin-left:5px;color:blue" do%>
+      Use Policy.
+      <% end -%>
     </div>
 
     <div class="actions">
