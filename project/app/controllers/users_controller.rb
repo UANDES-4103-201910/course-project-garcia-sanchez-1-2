@@ -52,9 +52,6 @@ class UsersController < ApplicationController
           format.json { render :black_list, status: :ok, location: @user }
         elsif @user.update(black_params) && @user.black_list == false
           format.html { redirect_to black_list_path, notice: 'User removed from black list.' }
-          format.json { render :show, status: :ok, location: @user }
-        else
-          format.html { redirect_to black_list_path, notice: 'User was successfully updated.' }
           format.json { render :show, status: :ok, location: @user }  
         end
       else

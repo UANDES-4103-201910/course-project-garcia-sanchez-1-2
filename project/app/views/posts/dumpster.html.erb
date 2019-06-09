@@ -15,9 +15,9 @@
         <td><%= p.title%></td>
         <td><%= p.user.username%></td>
         
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', p %></td>
+        <td><%= link_to 'Edit', edit_post_path(p) %></td>
+        <td><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td>
           <%= form_with(model: p, local: true) do |f| %>
             <%=f.submit 'Dumpster'%>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+

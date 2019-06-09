@@ -65,8 +65,15 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+        if @post.update(dump_params) && @post.dumpster == true
+          format.html { redirect_to posts_path, notice: 'Post was successfully trashed.' }
+          format.json { render :show, status: :ok, location: @post }
+        
+        elsif @post.update(dump_params) && @post.dumpster == false
+          format.html { redirect_to dumpster_path, notice: 'Post was successfully restored.' }
+          format.json { render :show, status: :ok, location: @post }
+        end
+
       else
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -108,6 +115,8 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :description, :body, :country, :city, :files,images: []).merge(user_id: current_user.id)
     end
   
-
+    def dump_params
+      params.require(:post).permit(:dumpster)
+    end
     
 end

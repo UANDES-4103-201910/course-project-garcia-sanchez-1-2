@@ -83,13 +83,23 @@
                 <span class="badge"><%= p.get_downvotes.size %></span>
               </button>
             <% end %>
+            <%elsif current_user%>
+            <button type="button" class="btn btn-dark" aria-label="Left Align">
+                <span class="fa fa-thumbs-down" aria-hidden="true"></span>
+                <span class="badge"><%= p.get_downvotes.size %></span>
+              </button>
+              <%= form_with(model: p, local: true) do |f| %>
+                <%=f.submit 'Dumpster', class: "btn btn-dark"%>
+                <%=f.check_box :dumpster, class: "btn btn-dark"%>
+              <% end -%>
             <%else%>
               <button type="button" class="btn btn-dark" aria-label="Left Align">
                 <span class="fa fa-thumbs-down" aria-hidden="true"></span>
                 <span class="badge"><%= p.get_downvotes.size %></span>
               </button>
             <% end -%>
-          </div>
+
+        </div>
         </div>  
         </div>
       

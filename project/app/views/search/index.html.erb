@@ -1,12 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+  
+  function hide() {
+    var x = document.getElementById("hide1");
+    if (x.style.display == "none") {
+      x.style.display = "block"; 
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function hide2() {
+    var x = document.getElementById("hide2");
+    if (x.style.display == "none") {
+      x.style.display = "block"; 
+    } else {
+      x.style.display = "none";
+    }
+  }
 
-
-
-
+</script>  
+    <button onclick="hide()">Search by users </button>
+    <button onclick="hide()">Search by posts </button>
+<div class="container">
   
 <div class="row mb-2">
-  <div class="col-md-2"></div>
+  
   <div class="col-8 ">
-<div class="card">
+<div class="card" id = "hide1">
     <div class="card-header">  
       <h2>  Searched users</h2>
     </div>
@@ -14,19 +39,25 @@
       <% @users.each do |user| %>
           <div class="card float-left " style="width: 100%" >
           <div class="card-body float-left" style="height:auto; min-height: 100px;">
+            <% if user.name%>
               <h4>  
               <%= link_to user.username,  user_path(id: user.id), class: 'display-4 btn-outline-light active', title: 'Go to user profile' %>
               </h4>
               <h4><%= user.name + " " +user.last_name%></h4> 
-              <h4 class="card-title"><%= user.city%>, <%= user.country%> </h4>
+              <h4 class="card-title"><%= user.city%>  <%= user.country%> </h4>
               <h4 class="card-title"><%= user.phone%></h4>
+            <%else%>
+            <h4 class="card-title">No name</h4>
+            <%end%>
+
           </div>
         </div>
       <%end%>
     </div>
   </div>
+</div>
 
-  <div class="card">
+  <div class="card" id= "hide2">
     <div class="card-header">  
       <h2>  Searched Posts</h2>
     </div>
@@ -49,3 +80,6 @@
 </div>
 <div class="col-md-2"></div>
 </div>
+
+</body>
+</html>
