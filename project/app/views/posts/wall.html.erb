@@ -67,10 +67,8 @@
 
       <div class="row">
           <%user = User.find(p.user_id) %>
-          <%=link_to "http://localhost:3000/users/#{user.id}" do%>
-          <div class = "btn btn-outline-light active"><strong>Author:</strong> <%= user.username %></div>
-          <% end %>
-     </div>
+          <%= link_to user.username,  user_path(id: user.id), class: 'btn btn-outline-light active', title: 'Go to user profile' %>
+      </div>
       
       <!-- wea 1-->
       <div class="row">   

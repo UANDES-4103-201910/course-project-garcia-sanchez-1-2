@@ -10,10 +10,39 @@
   <div class="col-md-6">
     <div class="row">
 
-      <div class="col-md-9">
+      <div class="col-md-7">
         <h1><%= @post.title %></h1>
+        
+       
       </div>
-      <div class="col-md-3">
+      <div class="col-md-5">
+          <%if current_user && current_user.role == 1%>
+          <%= link_to like_post_path(@post), class: "like", method: :put do %>
+            <button type="button" class="btn btn-dark" aria-label="Left Align">
+              <span class="fa fa-thumbs-up" aria-hidden="true"></span>
+              <span class="badge"><%= @post.get_upvotes.size %></span>
+            </button>
+          <% end %>
+          <%else%>
+            <button type="button" class="btn btn-dark" aria-label="Left Align">
+              <span class="fa fa-thumbs-up" aria-hidden="true"></span>
+              <span class="badge"><%= @post.get_upvotes.size %></span>
+            </button>
+          <% end -%>
+
+          <%if current_user && current_user.role == 1%>
+          <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
+            <button type="button" class="btn btn-dark" aria-label="Left Align">
+              <span class="fa fa-thumbs-down" aria-hidden="true"></span>
+              <span class="badge"><%= @post.get_downvotes.size %></span>
+            </button>
+          <% end %>
+          <%else%>
+            <button type="button" class="btn btn-dark" aria-label="Left Align">
+              <span class="fa fa-thumbs-down" aria-hidden="true"></span>
+              <span class="badge"><%= @post.get_downvotes.size %></span>
+            </button>
+          <% end -%>
         <button class="btn btn-dark">Follow</button>
       </div>  
 
@@ -60,68 +89,41 @@
       </div>
       <div class="thumbnail thumb-box"></div>
 
-          <div class="caption" style="text-align:center;">
-            <%if current_user && current_user.role == 1%>
-            <%= link_to like_post_path(@post), class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align">
-                <span class="fa fa-thumbs-up" aria-hidden="true"></span>
-                <span class="badge"><%= @post.get_upvotes.size %></span>
-              </button>
-            <% end %>
-            <%else%>
-              <button type="button" class="btn btn-info" aria-label="Left Align">
-                <span class="fa fa-thumbs-up" aria-hidden="true"></span>
-                <span class="badge"><%= @post.get_upvotes.size %></span>
-              </button>
-            <% end -%>
+  
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-8">
+         
+          <h2>Comments</h2>
+          <% @post.comment.each do |comment| %>
 
-            <%if current_user && current_user.role == 1%>
-            <%= link_to unlike_post_path(@post), class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align">
-                <span class="fa fa-thumbs-down" aria-hidden="true"></span>
-                <span class="badge"><%= @post.get_downvotes.size %></span>
-              </button>
-            <% end %>
-            <%else%>
-              <button type="button" class="btn btn-info" aria-label="Left Align">
-                <span class="fa fa-thumbs-down" aria-hidden="true"></span>
-                <span class="badge"><%= @post.get_downvotes.size %></span>
-              </button>
-            <% end -%>
-          </div>
+            <p>
+            <%user = User.find(comment.user_id) %>
+            <%= link_to user.username,  user_path(id: user.id), class: 'btn btn-outline-light active', title: 'Go to user profile' %>:
+              <%= comment.content %>
 
-      <div class="col-md-4">
-       
-        <h2>Comments</h2>
-        <% @post.comment.each do |comment| %>
+              <%if current_user && current_user.id == comment.user_id %>
+                <%= link_to 'Edit', edit_post_comment_path(comment) %>
+              <% end %>
+            </p>
 
-          <p>
-          <%user = User.find(comment.user_id) %>
-          <%=link_to "http://localhost:3000/users/#{user.id}" do%>
-          <strong><%= user.username %>:</strong> 
-          <% end %>  
-            <%= comment.content %>
+          <% end %>
 
-            <%if current_user && current_user.id == comment.user_id %>
-              <%= link_to 'Edit', edit_post_comment_path(comment) %>
-            <% end %>
-          </p>
+          <%if current_user && current_user.role == 1%>
+          <%= form_with(model: [ @post, @post.comment.build ], local: true) do |form| %>
+            <p>
+              <%= form.text_area :content, placeholder:"Tap your reply!"%>
 
-        <% end %>
-
-        <%if current_user && current_user.role == 1%>
-        <%= form_with(model: [ @post, @post.comment.build ], local: true) do |form| %>
-          <p>
-            <%= form.text_area :content, placeholder:"Tap your reply!"%>
-
-          </p>
-          <p>
-            <div class="row" style="margin-bottom: : 35px">
-              <%= form.submit class: "btn btn-dark"%>
-            </div>
-          </p>
-        <% end %>
-        <% end -%>
+            </p>
+            <p>
+              <div class="row" style="margin-bottom: : 35px">
+                <%= form.submit class: "btn btn-dark"%>
+              </div>
+            </p>
+          <% end %>
+          <% end -%>
+        </div>
+        <div class="col-md-3"></div>
       </div>
     </div>
 </div>
