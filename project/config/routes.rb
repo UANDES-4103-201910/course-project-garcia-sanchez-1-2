@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   post '/login' => 'sessions#create', as: :log_in
   get '/black_list' => 'users#black_list', as: :black_list
+  get '/dumpster' => 'posts#dumpster', as: :dumpster
   
   post '/follow' => 'follows#create', as: :create_follow
   post '/sign_up' => 'registration#create', as: :sign_up

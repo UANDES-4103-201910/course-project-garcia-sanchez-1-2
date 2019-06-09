@@ -9,6 +9,13 @@ class PostsController < ApplicationController
    
   end
 
+  def inap
+    
+  end
+
+  def dumpster
+    
+  end
 
   def report 
     

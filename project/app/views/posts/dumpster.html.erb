@@ -1,5 +1,3 @@
-
-
 <table>
   <thead>
     <tr>
@@ -8,31 +6,26 @@
   </thead>
 
   <tbody>
-    <h2>Users</h2>
+    <h2>Dumpster</h2>
 
-    <% users = User.where(black_list: true) %>
-        <td><%= 'Users'%></td>
-    <% users.each do |user| %>
+    <% posts = Post.where(dumpster: true) %>
+        <td><%= 'Posts'%></td>
+    <% posts.each do |p| %>
       <tr>
-        <td><%= user.username%></td>
-        <td><%= user.name%></td>
-        <td><%= user.last_name%></td>
+        <td><%= p.title%></td>
+        <td><%= p.user.username%></td>
+        
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td>
-          <%= form_with(model: user, local: true) do |f| %>
-            <%=f.check_box :black_list%>
-            <%=f.submit 'Black list'%>
+          <%= form_with(model: p, local: true) do |f| %>
+            <%=f.submit 'Dumpster'%>
+            <%=f.check_box :dumpster%>
           <% end -%>
         </td>
       </tr>
     <% end %>
-
-    
-
-
- 
 
   </tbody>
 </table>
