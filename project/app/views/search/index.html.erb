@@ -14,17 +14,12 @@
       <% @users.each do |user| %>
           <div class="card float-left " style="width: 100%" >
           <div class="card-body float-left" style="height:auto; min-height: 100px;">
-            <% if user.name%>
               <h4>  
               <%= link_to user.username,  user_path(id: user.id), class: 'display-4 btn-outline-light active', title: 'Go to user profile' %>
               </h4>
               <h4><%= user.name + " " +user.last_name%></h4> 
-              <h4 class="card-title"><%= user.city%>  <%= user.country%> </h4>
+              <h4 class="card-title"><%= user.city%>, <%= user.country%> </h4>
               <h4 class="card-title"><%= user.phone%></h4>
-            <%else%>
-            <h4 class="card-title">No name</h4>
-            <%end%>
-
           </div>
         </div>
       <%end%>
