@@ -14,7 +14,7 @@
       <% @users.each do |user| %>
           <div class="card float-left " style="width: 100%" >
           <div class="card-body float-left" style="height:auto; min-height: 100px;">
-            <% if user.name.nil?%>
+            <% if user.name%>
               <h4>  
               <%= link_to user.username,  user_path(id: user.id), class: 'display-4 btn-outline-light active', title: 'Go to user profile' %>
               </h4>
