@@ -42,6 +42,7 @@
           <td><%= u.username%></td>
           <td><%= u.name%></td>
           <td><%= u.last_name%></td>
+          <td><%= u.last_sign_in_at%></td>
           <td><%= link_to 'Show', u %></td>
           <td><%= link_to 'Edit', edit_user_path(u) %></td>
           <td><%= link_to 'Destroy', u, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -54,6 +55,7 @@
           <td><%= u.username%></td>
           <td><%= u.name%></td>
           <td><%= u.last_name%></td>
+          <td><%= u.last_sign_in_at%></td>
           <td><%= link_to 'Show', u %></td>
         </tr>
       <% end %>

@@ -44,6 +44,13 @@
             </button>
           <% end -%>
         <button class="btn btn-dark">Follow</button>
+          <%if current_user && (current_user.role == 3 || current_user.role == 2)%>
+          
+          <%= form_with(model: @post, local: true) do |f| %>
+            <%=f.submit 'Dumpster', class: "btn btn-dark"%>
+            <%=f.check_box :dumpster, class: "btn btn-dark"%>
+          <% end -%>
+          <% end -%>
       </div>  
 
     </div>

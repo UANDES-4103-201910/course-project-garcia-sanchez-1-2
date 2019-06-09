@@ -45,13 +45,13 @@
 
       <ul class = "navbar-nav">   
   
-        <%if current_user && current_user.role == 1%>
+        <%if current_user && current_user.role == 1 && current_user.black_list == false%>
           <%= link_to new_post_path ,class: "btn btn-dark", style: "font-size:25px;color:white", title:"Create post" do%>
             <i class='fas fa-feather-alt' ></i>
         <% end -%>
           
 
-        <%elsif current_user%>
+        <%elsif current_user && (current_user.role == 2 || current_user.role == 3)%>
           <%= link_to dumpster_path ,class: "btn btn-dark", style: "font-size:25px;color:white", title:"Dumpster" do%>
             <i class='fas fa-trash-alt'></i>
           <% end -%>
