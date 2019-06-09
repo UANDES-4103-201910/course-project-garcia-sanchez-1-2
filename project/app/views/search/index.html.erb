@@ -6,7 +6,7 @@
 <body>
 <script>
   
-  function hide() {
+  function hide1() {
     var x = document.getElementById("hide1");
     if (x.style.display == "none") {
       x.style.display = "block"; 
@@ -15,25 +15,46 @@
     }
   }
   function hide2() {
-    var x = document.getElementById("hide2");
-    if (x.style.display == "none") {
-      x.style.display = "block"; 
+    var y = document.getElementById("hide2");
+    if (y.style.display == "none") {
+      y.style.display = "block"; 
     } else {
-      x.style.display = "none";
+      y.style.display = "none";
+    }
+  }
+  function hide3() {
+    var y = document.getElementById("hide3");
+    if (y.style.display == "none") {
+      y.style.display = "block"; 
+    } else {
+      y.style.display = "none";
+    }
+  }
+  function hide4() {
+    var y = document.getElementById("hide4");
+    if (y.style.display == "none") {
+      y.style.display = "block"; 
+    } else {
+      y.style.display = "none";
     }
   }
 
 </script>  
-    <button onclick="hide()">Search by users </button>
-    <button onclick="hide()">Search by posts </button>
-<div class="container">
+    <button onclick="hide1()" class="btn btn-outline-dark">Search by users </button>
+    <button onclick="hide2()" class="btn btn-outline-dark">Search by posts </button>
+    <%if current_user.role == 3 || current_user == 2%>
+      <button onclick="hide3()" class="btn btn-outline-dark">Search in dumpster </button>
+      <button onclick="hide4()" class="btn btn-outline-dark">Search in blacklist </button>
+    <% end%>
   
-<div class="row mb-2">
+<div class="row mb-2"></div>
   
   <div class="col-8 ">
+<div class="container">
 <div class="card" id = "hide1">
+    <div class="row">
     <div class="card-header">  
-      <h2>  Searched users</h2>
+      <h2>  Searched users in the app</h2>
     </div>
     <div class="card-body">
       <% @users.each do |user| %>
@@ -54,10 +75,13 @@
         </div>
       <%end%>
     </div>
+    </div>
   </div>
 </div>
 
+  <div class="container">
   <div class="card" id= "hide2">
+    <div class="row">
     <div class="card-header">  
       <h2>  Searched Posts</h2>
     </div>
@@ -76,8 +100,64 @@
         </div>
       <%end%>
     </div>
+    </div>
   </div>
 </div>
+    <div class="container">
+  <div class="card" id= "hide3">
+    <div class="row">
+    <div class="card-header">  
+      <h2>  Searched Dumpster</h2>
+    </div>
+    <div class="card-body">
+      <% @dump.each do |post| %>
+          <div class="card float-left " style="width: 100%" >
+          <div class="card-body float-left" style="height:auto; min-height: 100px;">
+            <% if post.title != nil%>
+              <h4>  
+              <%= link_to post.title,  post_path(id: post.id), class: 'display-4 btn-outline-light active', title: 'see more' %>
+              </h4>
+                <%= post.description%>
+            <%end%>
+
+          </div>
+        </div>
+      <%end%>
+    </div>
+    </div>
+  </div>
+  </div>
+
+<div class="container">
+<div class="card" id = "hide4">
+    <div class="row">
+    <div class="card-header">  
+      <h2>  Searched users in Black List</h2>
+    </div>
+    <div class="card-body">
+      <% @bl.each do |user| %>
+          <div class="card float-left " style="width: 100%" >
+          <div class="card-body float-left" style="height:auto; min-height: 100px;">
+            <% if user.name%>
+              <h4>  
+              <%= link_to user.username,  user_path(id: user.id), class: 'display-4 btn-outline-light active', title: 'Go to user profile' %>
+              </h4>
+              <h4><%= user.name + " " +user.last_name%></h4> 
+              <h4 class="card-title"><%= user.city%>  <%= user.country%> </h4>
+              <h4 class="card-title"><%= user.phone%></h4>
+            <%else%>
+            <h4 class="card-title">No name</h4>
+            <%end%>
+
+          </div>
+        </div>
+      <%end%>
+    </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="col-md-2"></div>
 </div>
 
