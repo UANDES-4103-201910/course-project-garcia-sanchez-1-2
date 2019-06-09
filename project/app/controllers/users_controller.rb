@@ -21,6 +21,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  #black list
+  def black_list
+    
+  end
   # POST /users
   # POST /users.json
   def create
@@ -43,8 +47,13 @@ class UsersController < ApplicationController
     respond_to do |format|
      
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        if @user.update(black_params)
+          format.html { redirect_to black_list_path, notice: 'User was successfully updated.' }
+          format.json { render :black_list, status: :ok, location: @user }
+        else
+          format.html { redirect_to black_list_path, notice: 'User was successfully updated.' }
+          format.json { render :show, status: :ok, location: @user }
+        end
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -71,6 +80,11 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       
-      params.require(:user).permit(:name, :last_name, :phone, :username, :password)
+      params.require(:user).permit(:name, :last_name, :phone, :username, :password, :black_list)
+    end
+
+    def black_params
+      
+      params.require(:user).permit(:black_list)
     end
 end

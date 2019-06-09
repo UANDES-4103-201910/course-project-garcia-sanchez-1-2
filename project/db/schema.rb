@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 2019_06_09_002911) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "black_lists", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_black_lists_on_post_id"
-    t.index ["user_id"], name: "index_black_lists_on_user_id"
-  end
-
   create_table "comment_images", force: :cascade do |t|
     t.string "link"
     t.integer "comment_id"
@@ -60,15 +51,6 @@ ActiveRecord::Schema.define(version: 2019_06_09_002911) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "dumpsters", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_dumpsters_on_post_id"
-    t.index ["user_id"], name: "index_dumpsters_on_user_id"
-  end
-
   create_table "follows", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
@@ -76,15 +58,6 @@ ActiveRecord::Schema.define(version: 2019_06_09_002911) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_follows_on_post_id"
     t.index ["user_id"], name: "index_follows_on_user_id"
-  end
-
-  create_table "inappropriates", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_inappropriates_on_post_id"
-    t.index ["user_id"], name: "index_inappropriates_on_user_id"
   end
 
   create_table "post_images", force: :cascade do |t|
@@ -101,6 +74,8 @@ ActiveRecord::Schema.define(version: 2019_06_09_002911) do
     t.text "body"
     t.string "country"
     t.string "city"
+    t.string "inappropriate", default: "0"
+    t.boolean "dumpster", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -110,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_06_09_002911) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "black_list", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.string "username"

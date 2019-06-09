@@ -17,9 +17,6 @@ Rails.application.routes.draw do
   get 'search/index'
   get 'search/new'
   get 'search/create'
-  resources :black_lists
-  resources :inappropriates
-  resources :dumpsters
 
   resources :post_images
   resources :posts do
@@ -37,6 +34,7 @@ Rails.application.routes.draw do
   root :to => 'posts#index'
 
   post '/login' => 'sessions#create', as: :log_in
+  get '/black_list' => 'users#black_list', as: :black_list
   
   post '/follow' => 'follows#create', as: :create_follow
   post '/sign_up' => 'registration#create', as: :sign_up
