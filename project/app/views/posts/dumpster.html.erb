@@ -8,8 +8,15 @@
   <tbody>
     <h2>Dumpster</h2>
 
+    <% if current_user.role == 2%>
+      <% posts = Post.where(dumpster: true, city: current_user.city) %>
+        <td><%= 'Posts'%></td>
+    <% elsif current_user.role == 3%>
     <% posts = Post.where(dumpster: true) %>
         <td><%= 'Posts'%></td>
+    <% end -%>
+
+  
     <% posts.each do |p| %>
       <tr>
         <td><%= p.title%></td>

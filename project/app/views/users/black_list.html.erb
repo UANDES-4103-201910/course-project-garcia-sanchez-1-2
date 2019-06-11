@@ -13,7 +13,13 @@
   <tbody>
     <h2>Black list</h2>
 
-    <% users = User.where(black_list: true) %>
+    <% if current_user.role == 2%>
+    <% users = User.where(black_list: true, city: current_user.city) %>
+        <td><strong>Users</strong></td>
+    <% elsif current_user.role == 3%>
+    <% users = User.where(black_list: true)%>
+        <td><strong>Users</strong></td>
+    <% end -%>
         
     <% users.each do |user| %>
       <tr>
