@@ -79,15 +79,15 @@
       <div>
 
         <strong>Location:</strong>
-        <%if current_user.city == "Santiago"%>
+        <%if @post.city == "Santiago"%>
           <strong>Current location:</strong> <br>
           <iframe width="600" height="450" frameborder="0" style="border:0;margin-bottom:10px" name="Santiago" 
           src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJL68lBEHFYpYRMQkPQDzVdYQ&key=AIzaSyDrN3ghKEWh72JEWFtQByn3y3-Bj-J32SI" allowfullscreen></iframe>
-          <%elsif current_user.city == "Rancagua"%>
+          <%elsif @post.city == "Rancagua"%>
           <strong>Current location:</strong> <br>
           <iframe width="600" height="450" frameborder="0" style="border:0" name="Rancagua" 
           src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ0xPvvWdDY5YR91StZoP8c9k&key=AIzaSyDrN3ghKEWh72JEWFtQByn3y3-Bj-J32SI" allowfullscreen></iframe>
-          <%elsif current_user.city == "Viña del mar"%>
+          <%elsif @post.city == "Viña del mar"%>
           <strong>Current location:</strong> <br>
           <iframe width="600" height="450" frameborder="0" style="border:0" name="Viña del mar" 
           src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJVRLU6oTeiZYRP0E933beX44&key=AIzaSyDrN3ghKEWh72JEWFtQByn3y3-Bj-J32SI" allowfullscreen></iframe>
