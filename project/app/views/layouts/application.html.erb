@@ -110,7 +110,9 @@
   </nav>
 
 </header>
-  <nav class="nav navbar-expand-md navbar-dark bg-dark " id= "navbot" >
+
+
+  <nav class="nav " style="float: right;" >
     <span class = "btn btn-dark " style='font-size:10px'>SweetUms</span>
     <%= link_to "https://www.termsofservicegenerator.net/live.php?token=kUp1CMjZWry51NLBURZw1qHEGs0lH8IC", class: "display btn-outline-light" do%>
       <span class = "btn btn-dark " style='font-size:10px' >Terms and Conditions</span>
@@ -120,8 +122,6 @@
       <span class = "btn btn-dark " style='font-size:10px' >Use Policy</span>
     <% end -%>
   </nav>
-
-
 <div class="container" style="background-color: #f8f9fa">
   <% flash.each do |type, message| %>
     <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="error" >
